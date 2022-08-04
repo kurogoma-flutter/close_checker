@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:go_router/go_router.dart';
 
 class TopPage extends StatelessWidget {
   const TopPage({Key? key}) : super(key: key);
@@ -22,13 +23,17 @@ class TopPage extends StatelessWidget {
             SizedBox(
               height: MediaQuery.of(context).size.height - 240,
               child: ListView.builder(
+                padding: EdgeInsets.zero,
                 itemCount: 12,
                 itemBuilder: (context, index) {
-                  return const Card(
-                    child: ListTile(
-                      title: Text('大分類カード'),
-                      trailing: Icon(Icons.arrow_forward),
+                  return GestureDetector(
+                    child: const Card(
+                      child: ListTile(
+                        title: Text('大分類カード'),
+                        trailing: Icon(Icons.arrow_forward),
+                      ),
                     ),
+                    onTap: () => context.go('/check_list'),
                   );
                 },
               ),
