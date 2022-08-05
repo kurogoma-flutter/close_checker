@@ -1,9 +1,13 @@
 import 'package:flutter/material.dart';
-import 'package:go_router/go_router.dart';
 
-class CheckListPage extends StatelessWidget {
+class CheckListPage extends StatefulWidget {
   const CheckListPage({Key? key}) : super(key: key);
 
+  @override
+  State<CheckListPage> createState() => _CheckListPageState();
+}
+
+class _CheckListPageState extends State<CheckListPage> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -24,14 +28,18 @@ class CheckListPage extends StatelessWidget {
               padding: EdgeInsets.zero,
               itemCount: 12,
               itemBuilder: (context, index) {
-                return GestureDetector(
-                  child: Card(
-                    child: ListTile(
-                      title: Text('チェック項目：${index + 1}'),
-                      trailing: const Icon(Icons.arrow_forward),
-                    ),
-                  ),
-                  onTap: () => context.push('/'),
+                bool isChecked = false;
+                return SwitchListTile(
+                  key: ValueKey('data$index'),
+                  title: Text('タスク：$index'),
+                  value: isChecked,
+                  onChanged: (value) {
+                    print(value);
+                    setState(() {
+                      isChecked = value;
+                    });
+                  },
+                  secondary: const Icon(Icons.lightbulb_outline),
                 );
               },
             ),
