@@ -1,5 +1,5 @@
-import 'package:close_checker/check_list_page.dart';
-import 'package:close_checker/top_page.dart';
+import 'package:close_checker/presentation/pages/minor_list/check_list_page.dart';
+import 'package:close_checker/presentation/pages/major_list/top_page.dart';
 import 'package:flutter/material.dart';
 import 'package:go_router/go_router.dart';
 
