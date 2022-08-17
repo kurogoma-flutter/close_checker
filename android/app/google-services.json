@@ -1,0 +1,39 @@
+{
+  "project_info": {
+    "project_number": "878214740655",
+    "project_id": "close-checker-mobile",
+    "storage_bucket": "close-checker-mobile.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:878214740655:android:63ea1e0b99d7417d5b725a",
+        "android_client_info": {
+          "package_name": "com.example.close_checker"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "878214740655-hla3s2900tljt2a3sh397b84chfid0ne.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyDNZCilmbtAByIJMp7E_vVrhMk_f_Q8E6s"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "878214740655-hla3s2900tljt2a3sh397b84chfid0ne.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
