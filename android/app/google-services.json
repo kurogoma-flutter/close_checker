@@ -29,6 +29,13 @@
             {
               "client_id": "878214740655-hla3s2900tljt2a3sh397b84chfid0ne.apps.googleusercontent.com",
               "client_type": 3
+            },
+            {
+              "client_id": "878214740655-i08vvgchrts5las0do6ia33ps0g4giv1.apps.googleusercontent.com",
+              "client_type": 2,
+              "ios_info": {
+                "bundle_id": "com.example.closeChecker"
+              }
             }
           ]
         }

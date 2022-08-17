@@ -73,26 +73,31 @@ List<MajorListModel> dammyMajorList = [
   MajorListModel(
     listId: 'yyyyyy',
     content: 'フリータスクのPR提出時',
+    createdUserId: 'XXXXXXXX',
     isDeleted: false,
   ),
   MajorListModel(
     listId: 'yyyyyy',
     content: '採点チェック時',
+    createdUserId: 'XXXXXXXX',
     isDeleted: false,
   ),
   MajorListModel(
     listId: 'yyyyyy',
     content: 'レビュー提出前チェック',
+    createdUserId: 'XXXXXXXX',
     isDeleted: false,
   ),
   MajorListModel(
     listId: 'yyyyyy',
     content: 'デイリータスク',
+    createdUserId: 'XXXXXXXX',
     isDeleted: false,
   ),
   MajorListModel(
     listId: 'yyyyyy',
     content: 'data MR作成前チェック',
+    createdUserId: 'XXXXXXXX',
     isDeleted: false,
   ),
 ];
@@ -101,16 +106,19 @@ List<MajorListModel> dammyDeletedMajorList = [
   MajorListModel(
     listId: 'yyyyyy',
     content: 'フリータスクのPR提出時',
+    createdUserId: 'XXXXXXXX',
     isDeleted: true,
   ),
   MajorListModel(
     listId: 'yyyyyy',
     content: '採点チェック時',
+    createdUserId: 'XXXXXXXX',
     isDeleted: true,
   ),
   MajorListModel(
     listId: 'yyyyyy',
     content: 'レビュー提出前チェック',
+    createdUserId: 'XXXXXXXX',
     isDeleted: true,
   ),
 ];
