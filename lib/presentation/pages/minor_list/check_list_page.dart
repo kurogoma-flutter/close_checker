@@ -1,3 +1,4 @@
+import 'package:close_checker/data/utility/logger.dart';
 import 'package:flutter/material.dart';
 
 class CheckListPage extends StatefulWidget {
@@ -34,7 +35,7 @@ class _CheckListPageState extends State<CheckListPage> {
                   title: Text('タスク：$index'),
                   value: isChecked,
                   onChanged: (value) {
-                    print(value);
+                    logger.i('出力テスト');
                     setState(() {
                       isChecked = value;
                     });

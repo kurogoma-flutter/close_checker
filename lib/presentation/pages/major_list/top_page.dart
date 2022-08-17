@@ -1,3 +1,4 @@
+import 'package:close_checker/data/utility/logger.dart';
 import 'package:flutter/material.dart';
 import 'package:go_router/go_router.dart';
 
@@ -44,7 +45,7 @@ class TopPage extends StatelessWidget {
       floatingActionButton: FloatingActionButton(
         backgroundColor: const Color.fromARGB(255, 38, 244, 213),
         onPressed: () {
-          print('ok');
+          logger.i('テストログ');
         },
         elevation: 2,
         child: const Icon(
