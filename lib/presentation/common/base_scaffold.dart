@@ -76,7 +76,7 @@ class _BaseScaffoldState extends State<BaseScaffold> {
                     ),
                     onTap: () {
                       logger.d('タップテスト');
-                      context.go('/list');
+                      context.go('/setting');
                     },
                   ),
                   label: '',

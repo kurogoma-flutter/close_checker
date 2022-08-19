@@ -4,6 +4,7 @@ import 'package:close_checker/presentation/pages/deleted_minor_list/deleted_mino
 import 'package:close_checker/presentation/pages/errors/simple_error_page.dart';
 import 'package:close_checker/presentation/pages/minor_list/minor_list_page.dart';
 import 'package:close_checker/presentation/pages/major_list/major_list_page.dart';
+import 'package:close_checker/presentation/pages/setting/setting_page.dart';
 import 'package:flutter/material.dart';
 import 'package:go_router/go_router.dart';
 
@@ -27,21 +28,30 @@ final GoRouter router = GoRouter(
       ],
     ),
     GoRoute(
-        path: '/list',
-        pageBuilder: (BuildContext context, GoRouterState state) =>
-            NoAnimationTransition(
-              key: state.pageKey,
-              child: const MajorListPage(),
-            ),
-        routes: [
-          GoRoute(
-            path: 'minor/:id',
-            builder: (BuildContext context, GoRouterState state) {
-              final String id = state.params['id']!;
-              return MinorListPage(id: id);
-            },
-          ),
-        ]),
+      path: '/list',
+      pageBuilder: (BuildContext context, GoRouterState state) =>
+          NoAnimationTransition(
+        key: state.pageKey,
+        child: const MajorListPage(),
+      ),
+      routes: [
+        GoRoute(
+          path: 'minor/:id',
+          builder: (BuildContext context, GoRouterState state) {
+            final String id = state.params['id']!;
+            return MinorListPage(id: id);
+          },
+        ),
+      ],
+    ),
+    GoRoute(
+      path: '/setting',
+      pageBuilder: (BuildContext context, GoRouterState state) =>
+          NoAnimationTransition(
+        key: state.pageKey,
+        child: const SettingPage(),
+      ),
+    ),
   ],
   initialLocation: '/list',
   errorBuilder: (context, state) => const SimpleErrorPage(),
