@@ -25,9 +25,14 @@ class SettingPage extends HookConsumerWidget {
             trailing: Icon(Icons.arrow_forward),
           ),
           const Divider(),
-          const ListTile(
-            title: Text('PIN設定'),
-            trailing: Icon(Icons.arrow_forward),
+          GestureDetector(
+            onTap: () {
+              context.go('/pin');
+            },
+            child: const ListTile(
+              title: Text('PIN設定'),
+              trailing: Icon(Icons.arrow_forward),
+            ),
           ),
           const Divider(),
           GestureDetector(

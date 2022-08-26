@@ -6,6 +6,7 @@ import 'package:close_checker/presentation/pages/legals/app_term_page.dart';
 import 'package:close_checker/presentation/pages/legals/inquiry_page.dart';
 import 'package:close_checker/presentation/pages/minor_list/minor_list_page.dart';
 import 'package:close_checker/presentation/pages/major_list/major_list_page.dart';
+import 'package:close_checker/presentation/pages/setting/pin_setting_page.dart';
 import 'package:close_checker/presentation/pages/setting/setting_page.dart';
 import 'package:flutter/material.dart';
 import 'package:go_router/go_router.dart';
@@ -72,6 +73,33 @@ final GoRouter router = GoRouter(
         child: const InquiryPage(),
       ),
     ),
+
+    /// PIN設定
+    GoRoute(
+        path: '/pin',
+        pageBuilder: (BuildContext context, GoRouterState state) =>
+            NoAnimationTransition(
+              key: state.pageKey,
+              child: const PinSettingPage(),
+            ),
+        routes: [
+          GoRoute(
+            path: 'confirm',
+            pageBuilder: (BuildContext context, GoRouterState state) =>
+                NoAnimationTransition(
+              key: state.pageKey,
+              child: const PinConfirmPage(),
+            ),
+          ),
+          GoRoute(
+            path: 'done',
+            pageBuilder: (BuildContext context, GoRouterState state) =>
+                NoAnimationTransition(
+              key: state.pageKey,
+              child: const PinSettingDonePage(),
+            ),
+          ),
+        ]),
   ],
   initialLocation: '/list',
   errorBuilder: (context, state) => const SimpleErrorPage(),
