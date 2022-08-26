@@ -2,6 +2,8 @@ import 'package:close_checker/presentation/common/base_scaffold.dart';
 import 'package:close_checker/presentation/pages/deleted_major_list/deleted_major_list_page.dart';
 import 'package:close_checker/presentation/pages/deleted_minor_list/deleted_minor_list_page.dart';
 import 'package:close_checker/presentation/pages/errors/simple_error_page.dart';
+import 'package:close_checker/presentation/pages/legals/app_term_page.dart';
+import 'package:close_checker/presentation/pages/legals/inquiry_page.dart';
 import 'package:close_checker/presentation/pages/minor_list/minor_list_page.dart';
 import 'package:close_checker/presentation/pages/major_list/major_list_page.dart';
 import 'package:close_checker/presentation/pages/setting/setting_page.dart';
@@ -50,6 +52,24 @@ final GoRouter router = GoRouter(
           NoAnimationTransition(
         key: state.pageKey,
         child: const SettingPage(),
+      ),
+    ),
+
+    /// 規約系
+    GoRoute(
+      path: '/app_term',
+      pageBuilder: (BuildContext context, GoRouterState state) =>
+          NoAnimationTransition(
+        key: state.pageKey,
+        child: const AppTermPage(),
+      ),
+    ),
+    GoRoute(
+      path: '/inquiry',
+      pageBuilder: (BuildContext context, GoRouterState state) =>
+          NoAnimationTransition(
+        key: state.pageKey,
+        child: const InquiryPage(),
       ),
     ),
   ],

@@ -8,6 +8,7 @@ class AppTermPage extends StatelessWidget {
     return Scaffold(
       appBar: AppBar(
         title: const Text('規約'),
+        backgroundColor: const Color.fromARGB(255, 202, 248, 255),
       ),
       body: const Center(
         child: Text('規約'),
