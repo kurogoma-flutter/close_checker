@@ -31,7 +31,7 @@ class PinSettingPageViewModel extends ChangeNotifier {
     notifyListeners();
 
     if (pin.length == 4) {
-      context.push('/pin/confirm');
+      context.push('/setting/pin/confirm');
     }
   }
 

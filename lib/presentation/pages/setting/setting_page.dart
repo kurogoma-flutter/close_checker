@@ -10,9 +10,14 @@ class SettingPage extends HookConsumerWidget {
       child: ListView(
         children: [
           const Divider(),
-          const ListTile(
-            title: Text('このアプリについて'),
-            trailing: Icon(Icons.arrow_forward),
+          GestureDetector(
+            onTap: () {
+              context.push('/setting/about_this_app');
+            },
+            child: const ListTile(
+              title: Text('このアプリについて'),
+              trailing: Icon(Icons.arrow_forward),
+            ),
           ),
           const Divider(),
           const ListTile(
@@ -27,7 +32,7 @@ class SettingPage extends HookConsumerWidget {
           const Divider(),
           GestureDetector(
             onTap: () {
-              context.go('/pin');
+              context.go('/setting/pin');
             },
             child: const ListTile(
               title: Text('PIN設定'),
@@ -37,7 +42,7 @@ class SettingPage extends HookConsumerWidget {
           const Divider(),
           GestureDetector(
             onTap: () {
-              context.push('/app_term');
+              context.push('/setting/app_term');
             },
             child: const ListTile(
               title: Text('規約'),
@@ -47,7 +52,7 @@ class SettingPage extends HookConsumerWidget {
           const Divider(),
           GestureDetector(
             onTap: () {
-              context.push('/inquiry');
+              context.push('/setting/inquiry');
             },
             child: const ListTile(
               title: Text('問い合わせ'),

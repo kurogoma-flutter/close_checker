@@ -6,6 +6,7 @@ import 'package:close_checker/presentation/pages/legals/app_term_page.dart';
 import 'package:close_checker/presentation/pages/legals/inquiry_page.dart';
 import 'package:close_checker/presentation/pages/minor_list/minor_list_page.dart';
 import 'package:close_checker/presentation/pages/major_list/major_list_page.dart';
+import 'package:close_checker/presentation/pages/setting/about_this_app/about_this_app_page.dart';
 import 'package:close_checker/presentation/pages/setting/pin/pin_setting_confirm_page.dart';
 import 'package:close_checker/presentation/pages/setting/pin/pin_setting_page.dart';
 import 'package:close_checker/presentation/pages/setting/setting_page.dart';
@@ -56,42 +57,58 @@ final GoRouter router = GoRouter(
         key: state.pageKey,
         child: const SettingPage(),
       ),
-    ),
-
-    /// 規約系
-    GoRoute(
-      path: '/app_term',
-      pageBuilder: (BuildContext context, GoRouterState state) =>
-          NoAnimationTransition(
-        key: state.pageKey,
-        child: const AppTermPage(),
-      ),
-    ),
-    GoRoute(
-      path: '/inquiry',
-      pageBuilder: (BuildContext context, GoRouterState state) =>
-          NoAnimationTransition(
-        key: state.pageKey,
-        child: const InquiryPage(),
-      ),
-    ),
-
-    /// PIN設定
-    GoRoute(
-      path: '/pin',
-      pageBuilder: (BuildContext context, GoRouterState state) =>
-          NoAnimationTransition(
-        key: state.pageKey,
-        child: const PinSettingPage(),
-      ),
       routes: [
+        /// このアプリについて
         GoRoute(
-          path: 'confirm',
+          path: 'about_this_app',
           pageBuilder: (BuildContext context, GoRouterState state) =>
               NoAnimationTransition(
             key: state.pageKey,
-            child: const PinConfirmPage(),
+            child: const AboutThisAppPage(),
           ),
+        ),
+
+        /// フォントサイズ設定
+        /// アプリテーマ
+
+        /// 規約画面
+        GoRoute(
+          path: 'app_term',
+          pageBuilder: (BuildContext context, GoRouterState state) =>
+              NoAnimationTransition(
+            key: state.pageKey,
+            child: const AppTermPage(),
+          ),
+        ),
+
+        /// 問合せ画面
+        GoRoute(
+          path: 'inquiry',
+          pageBuilder: (BuildContext context, GoRouterState state) =>
+              NoAnimationTransition(
+            key: state.pageKey,
+            child: const InquiryPage(),
+          ),
+        ),
+
+        /// PIN設定
+        GoRoute(
+          path: 'pin',
+          pageBuilder: (BuildContext context, GoRouterState state) =>
+              NoAnimationTransition(
+            key: state.pageKey,
+            child: const PinSettingPage(),
+          ),
+          routes: [
+            GoRoute(
+              path: 'confirm',
+              pageBuilder: (BuildContext context, GoRouterState state) =>
+                  NoAnimationTransition(
+                key: state.pageKey,
+                child: const PinConfirmPage(),
+              ),
+            ),
+          ],
         ),
       ],
     ),
