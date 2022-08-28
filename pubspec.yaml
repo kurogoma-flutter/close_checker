@@ -40,3 +40,7 @@ flutter:
   uses-material-design: true
   assets:
     - assets/
+  fonts:
+   - family: RocknRoll_One
+     fonts:
+       - asset: assets/font/RocknRoll_One/RocknRollOne-Regular.ttf
