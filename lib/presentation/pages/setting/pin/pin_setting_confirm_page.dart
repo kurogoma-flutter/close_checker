@@ -42,27 +42,22 @@ class PinConfirmPage extends ConsumerWidget {
                     ),
                   ],
                 ),
-                Padding(
-                  padding: const EdgeInsets.symmetric(horizontal: 20),
-                  child: Wrap(
-                    spacing: 12,
-                    runSpacing: 12,
-                    alignment: WrapAlignment.center,
-                    children: const [
-                      _PinNumberButton(number: 1),
-                      _PinNumberButton(number: 2),
-                      _PinNumberButton(number: 3),
-                      _PinNumberButton(number: 4),
-                      _PinNumberButton(number: 5),
-                      _PinNumberButton(number: 6),
-                      _PinNumberButton(number: 7),
-                      _PinNumberButton(number: 8),
-                      _PinNumberButton(number: 9),
-                      _PinClearButton(),
-                      _PinNumberButton(number: 0),
-                      _PinDeleteButton()
-                    ],
-                  ),
+                Wrap(
+                  alignment: WrapAlignment.center,
+                  children: const [
+                    _PinNumber1(),
+                    _PinNumber2(),
+                    _PinNumber3(),
+                    _PinNumber4(),
+                    _PinNumber5(),
+                    _PinNumber6(),
+                    _PinNumber7(),
+                    _PinNumber8(),
+                    _PinNumber9(),
+                    _PinClear(),
+                    _PinNumber0(),
+                    _PinDelete(),
+                  ],
                 ),
               ],
             ),
@@ -105,38 +100,8 @@ class _PinInputForm extends StatelessWidget {
   }
 }
 
-class _PinNumberButton extends ConsumerWidget {
-  const _PinNumberButton({
-    Key? key,
-    required this.number,
-  }) : super(key: key);
-
-  final int number;
-
-  @override
-  Widget build(BuildContext context, WidgetRef ref) {
-    final viewModel = ref.watch(pinSettingPageViewModel);
-    return GestureDetector(
-      onTap: () {
-        viewModel.setPinConfirm(context, number.toString());
-      },
-      child: CircleAvatar(
-        maxRadius: 32,
-        backgroundColor: Colors.blueAccent,
-        child: Text(
-          number.toString(),
-          style: const TextStyle(
-            color: Colors.white,
-            fontSize: 28,
-          ),
-        ),
-      ),
-    );
-  }
-}
-
-class _PinDeleteButton extends ConsumerWidget {
-  const _PinDeleteButton({
+class _PinNumber1 extends ConsumerWidget {
+  const _PinNumber1({
     Key? key,
   }) : super(key: key);
 
@@ -145,24 +110,198 @@ class _PinDeleteButton extends ConsumerWidget {
     final viewModel = ref.watch(pinSettingPageViewModel);
     return GestureDetector(
       onTap: () {
-        // 1文字削除
-        viewModel.deletePinConfirm();
+        viewModel.setPinConfirm(context, '1');
       },
-      child: const CircleAvatar(
-        maxRadius: 32,
-        backgroundColor: Colors.grey,
-        child: Icon(
-          Icons.close,
-          color: Colors.white,
-          size: 28,
-        ),
+      child: SizedBox(
+        height: 85,
+        child: Image.asset('assets/1.png'),
       ),
     );
   }
 }
 
-class _PinClearButton extends ConsumerWidget {
-  const _PinClearButton({
+class _PinNumber2 extends ConsumerWidget {
+  const _PinNumber2({
+    Key? key,
+  }) : super(key: key);
+
+  @override
+  Widget build(BuildContext context, WidgetRef ref) {
+    final viewModel = ref.watch(pinSettingPageViewModel);
+    return GestureDetector(
+      onTap: () {
+        viewModel.setPinConfirm(context, '2');
+      },
+      child: SizedBox(
+        height: 85,
+        child: Image.asset('assets/2.png'),
+      ),
+    );
+  }
+}
+
+class _PinNumber3 extends ConsumerWidget {
+  const _PinNumber3({
+    Key? key,
+  }) : super(key: key);
+
+  @override
+  Widget build(BuildContext context, WidgetRef ref) {
+    final viewModel = ref.watch(pinSettingPageViewModel);
+    return GestureDetector(
+      onTap: () {
+        viewModel.setPinConfirm(context, '3');
+      },
+      child: SizedBox(
+        height: 85,
+        child: Image.asset('assets/3.png'),
+      ),
+    );
+  }
+}
+
+class _PinNumber4 extends ConsumerWidget {
+  const _PinNumber4({
+    Key? key,
+  }) : super(key: key);
+
+  @override
+  Widget build(BuildContext context, WidgetRef ref) {
+    final viewModel = ref.watch(pinSettingPageViewModel);
+    return GestureDetector(
+      onTap: () {
+        viewModel.setPinConfirm(context, '4');
+      },
+      child: SizedBox(
+        height: 85,
+        child: Image.asset('assets/4.png'),
+      ),
+    );
+  }
+}
+
+class _PinNumber5 extends ConsumerWidget {
+  const _PinNumber5({
+    Key? key,
+  }) : super(key: key);
+
+  @override
+  Widget build(BuildContext context, WidgetRef ref) {
+    final viewModel = ref.watch(pinSettingPageViewModel);
+    return GestureDetector(
+      onTap: () {
+        viewModel.setPinConfirm(context, '5');
+      },
+      child: SizedBox(
+        height: 85,
+        child: Image.asset('assets/5.png'),
+      ),
+    );
+  }
+}
+
+class _PinNumber6 extends ConsumerWidget {
+  const _PinNumber6({
+    Key? key,
+  }) : super(key: key);
+
+  @override
+  Widget build(BuildContext context, WidgetRef ref) {
+    final viewModel = ref.watch(pinSettingPageViewModel);
+    return GestureDetector(
+      onTap: () {
+        viewModel.setPinConfirm(context, '6');
+      },
+      child: SizedBox(
+        height: 85,
+        child: Image.asset('assets/6.png'),
+      ),
+    );
+  }
+}
+
+class _PinNumber7 extends ConsumerWidget {
+  const _PinNumber7({
+    Key? key,
+  }) : super(key: key);
+
+  @override
+  Widget build(BuildContext context, WidgetRef ref) {
+    final viewModel = ref.watch(pinSettingPageViewModel);
+    return GestureDetector(
+      onTap: () {
+        viewModel.setPinConfirm(context, '7');
+      },
+      child: SizedBox(
+        height: 85,
+        child: Image.asset('assets/7.png'),
+      ),
+    );
+  }
+}
+
+class _PinNumber8 extends ConsumerWidget {
+  const _PinNumber8({
+    Key? key,
+  }) : super(key: key);
+
+  @override
+  Widget build(BuildContext context, WidgetRef ref) {
+    final viewModel = ref.watch(pinSettingPageViewModel);
+    return GestureDetector(
+      onTap: () {
+        viewModel.setPinConfirm(context, '8');
+      },
+      child: SizedBox(
+        height: 85,
+        child: Image.asset('assets/8.png'),
+      ),
+    );
+  }
+}
+
+class _PinNumber9 extends ConsumerWidget {
+  const _PinNumber9({
+    Key? key,
+  }) : super(key: key);
+
+  @override
+  Widget build(BuildContext context, WidgetRef ref) {
+    final viewModel = ref.watch(pinSettingPageViewModel);
+    return GestureDetector(
+      onTap: () {
+        viewModel.setPinConfirm(context, '9');
+      },
+      child: SizedBox(
+        height: 85,
+        child: Image.asset('assets/9.png'),
+      ),
+    );
+  }
+}
+
+class _PinNumber0 extends ConsumerWidget {
+  const _PinNumber0({
+    Key? key,
+  }) : super(key: key);
+
+  @override
+  Widget build(BuildContext context, WidgetRef ref) {
+    final viewModel = ref.watch(pinSettingPageViewModel);
+    return GestureDetector(
+      onTap: () {
+        viewModel.setPinConfirm(context, '0');
+      },
+      child: SizedBox(
+        height: 85,
+        child: Image.asset('assets/0.png'),
+      ),
+    );
+  }
+}
+
+class _PinClear extends ConsumerWidget {
+  const _PinClear({
     Key? key,
   }) : super(key: key);
 
@@ -173,17 +312,29 @@ class _PinClearButton extends ConsumerWidget {
       onTap: () {
         viewModel.clearPinConfirm();
       },
-      child: const CircleAvatar(
-        maxRadius: 32,
-        backgroundColor: Colors.orange,
-        child: Text(
-          'C',
-          style: TextStyle(
-            color: Colors.white,
-            fontSize: 28,
-            fontWeight: FontWeight.w500,
-          ),
-        ),
+      child: SizedBox(
+        height: 85,
+        child: Image.asset('assets/clear.png'),
+      ),
+    );
+  }
+}
+
+class _PinDelete extends ConsumerWidget {
+  const _PinDelete({
+    Key? key,
+  }) : super(key: key);
+
+  @override
+  Widget build(BuildContext context, WidgetRef ref) {
+    final viewModel = ref.watch(pinSettingPageViewModel);
+    return GestureDetector(
+      onTap: () {
+        viewModel.deletePinConfirm();
+      },
+      child: SizedBox(
+        height: 85,
+        child: Image.asset('assets/delete.png'),
       ),
     );
   }

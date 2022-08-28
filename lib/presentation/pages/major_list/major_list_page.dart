@@ -47,7 +47,7 @@ class MajorListPage extends StatelessWidget {
                   ),
                   child: ListTile(
                     title: Text(dammyMajorList[index].content),
-                    trailing: const Icon(Icons.arrow_forward),
+                    trailing: const _RightArrowIcon(),
                   ),
                 ),
                 onTap: () => context.push('/list/minor/5'),
@@ -97,6 +97,23 @@ class MajorListPage extends StatelessWidget {
           ),
         )
       ],
+    );
+  }
+}
+
+class _RightArrowIcon extends StatelessWidget {
+  const _RightArrowIcon({Key? key}) : super(key: key);
+
+  @override
+  Widget build(BuildContext context) {
+    return Padding(
+      padding: const EdgeInsets.only(right: 10),
+      child: SizedBox(
+        height: 28,
+        child: Image.asset(
+          'assets/right-arrow.png',
+        ),
+      ),
     );
   }
 }
