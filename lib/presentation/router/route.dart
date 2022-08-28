@@ -6,12 +6,14 @@ import 'package:close_checker/presentation/pages/legals/app_term_page.dart';
 import 'package:close_checker/presentation/pages/legals/inquiry_page.dart';
 import 'package:close_checker/presentation/pages/minor_list/minor_list_page.dart';
 import 'package:close_checker/presentation/pages/major_list/major_list_page.dart';
-import 'package:close_checker/presentation/pages/setting/pin_setting_page.dart';
+import 'package:close_checker/presentation/pages/setting/pin/pin_setting_confirm_page.dart';
+import 'package:close_checker/presentation/pages/setting/pin/pin_setting_page.dart';
 import 'package:close_checker/presentation/pages/setting/setting_page.dart';
 import 'package:flutter/material.dart';
 import 'package:go_router/go_router.dart';
 
 final GoRouter router = GoRouter(
+  initialLocation: '/list',
   routes: <GoRoute>[
     GoRoute(
       path: '/deleted',
@@ -76,32 +78,24 @@ final GoRouter router = GoRouter(
 
     /// PIN設定
     GoRoute(
-        path: '/pin',
-        pageBuilder: (BuildContext context, GoRouterState state) =>
-            NoAnimationTransition(
-              key: state.pageKey,
-              child: const PinSettingPage(),
-            ),
-        routes: [
-          GoRoute(
-            path: 'confirm',
-            pageBuilder: (BuildContext context, GoRouterState state) =>
-                NoAnimationTransition(
-              key: state.pageKey,
-              child: const PinConfirmPage(),
-            ),
+      path: '/pin',
+      pageBuilder: (BuildContext context, GoRouterState state) =>
+          NoAnimationTransition(
+        key: state.pageKey,
+        child: const PinSettingPage(),
+      ),
+      routes: [
+        GoRoute(
+          path: 'confirm',
+          pageBuilder: (BuildContext context, GoRouterState state) =>
+              NoAnimationTransition(
+            key: state.pageKey,
+            child: const PinConfirmPage(),
           ),
-          GoRoute(
-            path: 'done',
-            pageBuilder: (BuildContext context, GoRouterState state) =>
-                NoAnimationTransition(
-              key: state.pageKey,
-              child: const PinSettingDonePage(),
-            ),
-          ),
-        ]),
+        ),
+      ],
+    ),
   ],
-  initialLocation: '/list',
   errorBuilder: (context, state) => const SimpleErrorPage(),
   navigatorBuilder: (context, state, child) {
     return Navigator(
