@@ -66,7 +66,7 @@ class _MyAppState extends State<MyApp> {
         canvasColor: Colors.transparent,
         highlightColor: Colors.transparent,
         splashColor: Colors.transparent,
-        fontFamily: 'RocknRoll_One',
+        fontFamily: 'Yusei_Magic',
       ),
     );
   }

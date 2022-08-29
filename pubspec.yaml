@@ -44,3 +44,9 @@ flutter:
    - family: RocknRoll_One
      fonts:
        - asset: assets/font/RocknRoll_One/RocknRollOne-Regular.ttf
+   - family: Yusei_Magic
+     fonts:
+       - asset: assets/font/Yusei_Magic/YuseiMagic-Regular.ttf
+
+
+       
