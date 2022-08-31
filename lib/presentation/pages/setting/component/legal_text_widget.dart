@@ -16,7 +16,7 @@ class LegalTitle extends StatelessWidget {
       child: Text(
         text,
         style: const TextStyle(
-          fontSize: 28,
+          fontSize: 20,
           fontWeight: FontWeight.w600,
         ),
       ),
@@ -40,7 +40,7 @@ class LegalSubTitle extends StatelessWidget {
       child: Text(
         text,
         style: const TextStyle(
-          fontSize: 22,
+          fontSize: 16,
           fontWeight: FontWeight.w400,
         ),
       ),
@@ -64,7 +64,7 @@ class LegalText extends StatelessWidget {
       child: Text(
         text,
         style: const TextStyle(
-          fontSize: 18,
+          fontSize: 14,
         ),
       ),
     );
