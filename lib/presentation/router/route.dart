@@ -1,6 +1,6 @@
 import 'package:close_checker/presentation/common/base_scaffold.dart';
-import 'package:close_checker/presentation/pages/deleted_major_list/deleted_major_list_page.dart';
-import 'package:close_checker/presentation/pages/deleted_minor_list/deleted_minor_list_page.dart';
+import 'package:close_checker/presentation/pages/major_list_history/major_list_history_page.dart';
+import 'package:close_checker/presentation/pages/minor_list_history/minor_list_history_page.dart';
 import 'package:close_checker/presentation/pages/errors/simple_error_page.dart';
 import 'package:close_checker/presentation/pages/legals/app_term_page.dart';
 import 'package:close_checker/presentation/pages/legals/inquiry_page.dart';

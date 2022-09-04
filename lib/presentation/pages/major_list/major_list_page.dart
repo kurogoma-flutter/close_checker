@@ -1,14 +1,19 @@
+import 'package:close_checker/domain/major_list/major_list_notifier.dart';
 import 'package:close_checker/utility/logger.dart';
 import 'package:close_checker/presentation/dammy/test_data.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_slidable/flutter_slidable.dart';
 import 'package:go_router/go_router.dart';
+import 'package:hooks_riverpod/hooks_riverpod.dart';
 
-class MajorListPage extends StatelessWidget {
+class MajorListPage extends HookConsumerWidget {
   const MajorListPage({Key? key}) : super(key: key);
 
   @override
-  Widget build(BuildContext context) {
+  Widget build(BuildContext context, WidgetRef ref) {
+    final state = ref.watch(majorListNotifierProvider);
+    final notifier = ref.watch(majorListNotifierProvider.notifier);
+
     return Column(
       children: [
         Container(
