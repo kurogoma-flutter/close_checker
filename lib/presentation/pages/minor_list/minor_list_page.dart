@@ -40,7 +40,9 @@ class _MinorListPageState extends State<MinorListPage> {
                 value: dammyCheckList[index].isDone,
                 onChanged: (value) {
                   setState(() {
-                    dammyCheckList[index].isDone = value;
+                    dammyCheckList[index] = dammyCheckList[index].copyWith(
+                      isDone: value,
+                    );
                   });
                 },
               );
@@ -57,7 +59,9 @@ class _MinorListPageState extends State<MinorListPage> {
               onPressed: () {
                 // isDoneを全てfalseにする
                 for (var i = 0; i < dammyCheckList.length; i++) {
-                  dammyCheckList[i].isDone = false;
+                  dammyCheckList[i] = dammyCheckList[i].copyWith(
+                    isDone: false,
+                  );
                 }
                 setState(() {});
               },
@@ -76,7 +80,9 @@ class _MinorListPageState extends State<MinorListPage> {
               onPressed: () {
                 // isDoneを全てfalseにする
                 for (var i = 0; i < dammyCheckList.length; i++) {
-                  dammyCheckList[i].isDone = false;
+                  dammyCheckList[i] = dammyCheckList[i].copyWith(
+                    isDone: false,
+                  );
                 }
                 setState(() {});
               },

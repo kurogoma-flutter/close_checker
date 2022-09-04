@@ -1,5 +1,5 @@
-import 'package:close_checker/data/model/major_list_model.dart';
-import 'package:close_checker/data/model/minor_list_model.dart';
+import 'package:close_checker/infrastructure/model/major_list/major_list_model.dart';
+import 'package:close_checker/infrastructure/model/minor_list/minor_list_model.dart';
 
 List<MinorListModel> dammyCheckList = [
   MinorListModel(
@@ -70,31 +70,31 @@ List<MinorListModel> dammyCheckList = [
 ];
 
 List<MajorListModel> dammyMajorList = [
-  MajorListModel(
+  const MajorListModel(
     listId: 'yyyyyy',
     content: 'フリータスクのPR提出時',
     createdUserId: 'XXXXXXXX',
     isDeleted: false,
   ),
-  MajorListModel(
+  const MajorListModel(
     listId: 'yyyyyy',
     content: '採点チェック時',
     createdUserId: 'XXXXXXXX',
     isDeleted: false,
   ),
-  MajorListModel(
+  const MajorListModel(
     listId: 'yyyyyy',
     content: 'レビュー提出前チェック',
     createdUserId: 'XXXXXXXX',
     isDeleted: false,
   ),
-  MajorListModel(
+  const MajorListModel(
     listId: 'yyyyyy',
     content: 'デイリータスク',
     createdUserId: 'XXXXXXXX',
     isDeleted: false,
   ),
-  MajorListModel(
+  const MajorListModel(
     listId: 'yyyyyy',
     content: 'data MR作成前チェック',
     createdUserId: 'XXXXXXXX',
@@ -103,19 +103,19 @@ List<MajorListModel> dammyMajorList = [
 ];
 
 List<MajorListModel> dammyDeletedMajorList = [
-  MajorListModel(
+  const MajorListModel(
     listId: 'yyyyyy',
     content: 'フリータスクのPR提出時',
     createdUserId: 'XXXXXXXX',
     isDeleted: true,
   ),
-  MajorListModel(
+  const MajorListModel(
     listId: 'yyyyyy',
     content: '採点チェック時',
     createdUserId: 'XXXXXXXX',
     isDeleted: true,
   ),
-  MajorListModel(
+  const MajorListModel(
     listId: 'yyyyyy',
     content: 'レビュー提出前チェック',
     createdUserId: 'XXXXXXXX',
