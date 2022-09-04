@@ -1,4 +1,4 @@
-import 'package:close_checker/data/utility/logger.dart';
+import 'package:close_checker/utility/logger.dart';
 import 'package:close_checker/presentation/router/route.dart';
 import 'package:flutter/material.dart';
 import 'package:hooks_riverpod/hooks_riverpod.dart';

@@ -1,4 +1,4 @@
-import 'package:close_checker/data/utility/logger.dart';
+import 'package:close_checker/utility/logger.dart';
 import 'package:close_checker/presentation/dammy/test_data.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_slidable/flutter_slidable.dart';
