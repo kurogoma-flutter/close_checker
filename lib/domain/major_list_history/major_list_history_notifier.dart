@@ -4,7 +4,7 @@ import 'package:hooks_riverpod/hooks_riverpod.dart';
 
 /// 大分類履歴（majorListHistory）のnotifier
 final majorListHistoryNotifierProvider =
-    StateNotifierProvider<MajorListNotifier, MajorListHistoryState>(
+    StateNotifierProvider.autoDispose<MajorListNotifier, MajorListHistoryState>(
   (ref) => MajorListNotifier(
     majorListHistoryService: ref.read(majorListHistoryService),
   )..init(),

@@ -4,7 +4,7 @@ import 'package:hooks_riverpod/hooks_riverpod.dart';
 
 /// 小分類履歴（minorListHistory）のnotifier
 final minorListHistoryNotifierProvider =
-    StateNotifierProvider<MinorListNotifier, MinorListHistoryState>(
+    StateNotifierProvider.autoDispose<MinorListNotifier, MinorListHistoryState>(
   (ref) => MinorListNotifier(
     minorListHistoryService: ref.read(minorListHistoryService),
   )..init(),
