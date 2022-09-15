@@ -2,7 +2,7 @@ import 'package:close_checker/infrastructure/model/major_list/major_list_model.d
 import 'package:close_checker/infrastructure/model/minor_list/minor_list_model.dart';
 
 List<MinorListModel> dammyCheckList = [
-  MinorListModel(
+  const MinorListModel(
     checkId: 'xxxxxx',
     listId: 'yyyyyy',
     icon: '',
@@ -10,7 +10,7 @@ List<MinorListModel> dammyCheckList = [
     isDone: false,
     isDeleted: false,
   ),
-  MinorListModel(
+  const MinorListModel(
     checkId: 'xxxxxx',
     listId: 'yyyyyy',
     icon: '😈',
@@ -18,7 +18,7 @@ List<MinorListModel> dammyCheckList = [
     isDone: false,
     isDeleted: false,
   ),
-  MinorListModel(
+  const MinorListModel(
     checkId: 'xxxxxx',
     listId: 'yyyyyy',
     icon: '😈',
@@ -26,7 +26,7 @@ List<MinorListModel> dammyCheckList = [
     isDone: false,
     isDeleted: false,
   ),
-  MinorListModel(
+  const MinorListModel(
     checkId: 'xxxxxx',
     listId: 'yyyyyy',
     icon: '',
@@ -34,7 +34,7 @@ List<MinorListModel> dammyCheckList = [
     isDone: false,
     isDeleted: false,
   ),
-  MinorListModel(
+  const MinorListModel(
     checkId: 'xxxxxx',
     listId: 'yyyyyy',
     icon: '💡',
@@ -42,7 +42,7 @@ List<MinorListModel> dammyCheckList = [
     isDone: false,
     isDeleted: false,
   ),
-  MinorListModel(
+  const MinorListModel(
     checkId: 'xxxxxx',
     listId: 'yyyyyy',
     icon: '💡',
@@ -50,7 +50,7 @@ List<MinorListModel> dammyCheckList = [
     isDone: false,
     isDeleted: false,
   ),
-  MinorListModel(
+  const MinorListModel(
     checkId: 'xxxxxx',
     listId: 'yyyyyy',
     icon: '😈',
@@ -58,7 +58,7 @@ List<MinorListModel> dammyCheckList = [
     isDone: false,
     isDeleted: false,
   ),
-  MinorListModel(
+  const MinorListModel(
     checkId: 'xxxxxx',
     listId: 'yyyyyy',
     icon: '💡',
