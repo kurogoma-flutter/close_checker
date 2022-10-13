@@ -13,119 +13,121 @@ import 'package:close_checker/presentation/pages/setting/setting_page.dart';
 import 'package:flutter/material.dart';
 import 'package:go_router/go_router.dart';
 
+/// グローバルキーの設定
+final GlobalKey<NavigatorState> navigatorKey = GlobalKey<NavigatorState>();
+final GlobalKey<NavigatorState> shellRouteKey = GlobalKey<NavigatorState>();
+
 final GoRouter router = GoRouter(
   initialLocation: '/list',
-  routes: <GoRoute>[
-    GoRoute(
-      path: '/deleted',
-      pageBuilder: (BuildContext context, GoRouterState state) =>
-          NoAnimationTransition(
-        key: state.pageKey,
-        child: const DeletedMajorListPage(),
-      ),
-      routes: [
-        GoRoute(
-          path: 'minor/:id',
-          builder: (BuildContext context, GoRouterState state) {
-            final String id = state.params['id']!;
-            return DeletedMinorListPage(id: id);
-          },
-        ),
-      ],
-    ),
-    GoRoute(
-      path: '/list',
-      pageBuilder: (BuildContext context, GoRouterState state) =>
-          NoAnimationTransition(
-        key: state.pageKey,
-        child: const MajorListPage(),
-      ),
-      routes: [
-        GoRoute(
-          path: 'minor/:id',
-          builder: (BuildContext context, GoRouterState state) {
-            final String id = state.params['id']!;
-            return MinorListPage(id: id);
-          },
-        ),
-      ],
-    ),
-    GoRoute(
-      path: '/setting',
-      pageBuilder: (BuildContext context, GoRouterState state) =>
-          NoAnimationTransition(
-        key: state.pageKey,
-        child: const SettingPage(),
-      ),
-      routes: [
-        /// このアプリについて
-        GoRoute(
-          path: 'about_this_app',
-          pageBuilder: (BuildContext context, GoRouterState state) =>
-              NoAnimationTransition(
-            key: state.pageKey,
-            child: const AboutThisAppPage(),
-          ),
-        ),
-
-        /// フォントサイズ設定
-        /// アプリテーマ
-
-        /// 規約画面
-        GoRoute(
-          path: 'app_term',
-          pageBuilder: (BuildContext context, GoRouterState state) =>
-              NoAnimationTransition(
-            key: state.pageKey,
-            child: const AppTermPage(),
-          ),
-        ),
-
-        /// 問合せ画面
-        GoRoute(
-          path: 'inquiry',
-          pageBuilder: (BuildContext context, GoRouterState state) =>
-              NoAnimationTransition(
-            key: state.pageKey,
-            child: const InquiryPage(),
-          ),
-        ),
-
-        /// PIN設定
-        GoRoute(
-          path: 'pin',
-          pageBuilder: (BuildContext context, GoRouterState state) =>
-              NoAnimationTransition(
-            key: state.pageKey,
-            child: const PinSettingPage(),
-          ),
-          routes: [
-            GoRoute(
-              path: 'confirm',
-              pageBuilder: (BuildContext context, GoRouterState state) =>
-                  NoAnimationTransition(
-                key: state.pageKey,
-                child: const PinConfirmPage(),
-              ),
+  navigatorKey: navigatorKey,
+  routes: [
+    ShellRoute(
+        navigatorKey: shellRouteKey,
+        builder: ((context, state, child) {
+          return BaseScaffold(
+            child: child,
+          );
+        }),
+        routes: [
+          GoRoute(
+            path: '/deleted',
+            pageBuilder: (BuildContext context, GoRouterState state) =>
+                NoAnimationTransition(
+              key: state.pageKey,
+              child: const DeletedMajorListPage(),
             ),
-          ],
-        ),
-      ],
-    ),
+            routes: [
+              GoRoute(
+                path: 'minor/:id',
+                builder: (BuildContext context, GoRouterState state) {
+                  final String id = state.params['id']!;
+                  return DeletedMinorListPage(id: id);
+                },
+              ),
+            ],
+          ),
+          GoRoute(
+            path: '/list',
+            pageBuilder: (BuildContext context, GoRouterState state) =>
+                NoAnimationTransition(
+              key: state.pageKey,
+              child: const MajorListPage(),
+            ),
+            routes: [
+              GoRoute(
+                path: 'minor/:id',
+                builder: (BuildContext context, GoRouterState state) {
+                  final String id = state.params['id']!;
+                  return MinorListPage(id: id);
+                },
+              ),
+            ],
+          ),
+          GoRoute(
+            path: '/setting',
+            pageBuilder: (BuildContext context, GoRouterState state) =>
+                NoAnimationTransition(
+              key: state.pageKey,
+              child: const SettingPage(),
+            ),
+            routes: [
+              /// このアプリについて
+              GoRoute(
+                path: 'about_this_app',
+                pageBuilder: (BuildContext context, GoRouterState state) =>
+                    NoAnimationTransition(
+                  key: state.pageKey,
+                  child: const AboutThisAppPage(),
+                ),
+              ),
+
+              /// フォントサイズ設定
+              /// アプリテーマ
+
+              /// 規約画面
+              GoRoute(
+                path: 'app_term',
+                pageBuilder: (BuildContext context, GoRouterState state) =>
+                    NoAnimationTransition(
+                  key: state.pageKey,
+                  child: const AppTermPage(),
+                ),
+              ),
+
+              /// 問合せ画面
+              GoRoute(
+                path: 'inquiry',
+                pageBuilder: (BuildContext context, GoRouterState state) =>
+                    NoAnimationTransition(
+                  key: state.pageKey,
+                  child: const InquiryPage(),
+                ),
+              ),
+
+              /// PIN設定
+              GoRoute(
+                path: 'pin',
+                pageBuilder: (BuildContext context, GoRouterState state) =>
+                    NoAnimationTransition(
+                  key: state.pageKey,
+                  child: const PinSettingPage(),
+                ),
+                routes: [
+                  GoRoute(
+                    path: 'confirm',
+                    pageBuilder: (BuildContext context, GoRouterState state) =>
+                        NoAnimationTransition(
+                      key: state.pageKey,
+                      child: const PinConfirmPage(),
+                    ),
+                  ),
+                ],
+              ),
+            ],
+          ),
+        ]),
   ],
   errorBuilder: (context, state) => const SimpleErrorPage(),
-  navigatorBuilder: (context, state, child) {
-    return Navigator(
-      onPopPage: (route, dynamic __) => false,
-      pages: [
-        MaterialPage<Widget>(
-          child: BaseScaffold(
-            child: child,
-          ),
-        ),
-      ],
-    );
-  },
 );
 
 /// 画面遷移アニメーションの排除
