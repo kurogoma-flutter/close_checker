@@ -55,21 +55,65 @@ class SettingPage extends HookConsumerWidget {
             ),
           ),
           const Divider(),
-          ListTile(
-            title: const Text('アプリテーマ'),
-            trailing: SizedBox(
-              height: 48,
-              child: Container(
-                padding: const EdgeInsets.all(6),
-                decoration: BoxDecoration(
-                  color: Colors.grey.shade100,
-                  border: Border.all(
-                    color: Colors.blueAccent,
+          GestureDetector(
+            // タップをしたらダイアログを表示する
+            onTap: () {
+              showDialog(
+                context: context,
+                builder: (context) {
+                  return AlertDialog(
+                    title: const Text(
+                      'カラーテーマを選択',
+                      textAlign: TextAlign.center,
+                    ),
+                    actions: [
+                      ElevatedButton(
+                        style: ElevatedButton.styleFrom(
+                          // TODO: 共通にしたい
+                          backgroundColor:
+                              const Color.fromARGB(255, 64, 239, 255),
+                          foregroundColor: const Color.fromARGB(255, 1, 1, 68),
+                        ),
+                        onPressed: () {
+                          print('タップ');
+                          Navigator.of(context).pop();
+                        },
+                        child: const Text('ライトモード'),
+                      ),
+                      const SizedBox(width: 4),
+                      ElevatedButton(
+                        style: ElevatedButton.styleFrom(
+                          // TODO: 共通にしたい
+                          backgroundColor: const Color.fromARGB(255, 1, 1, 68),
+                          foregroundColor: Colors.white,
+                        ),
+                        onPressed: () {
+                          print('タップ');
+                          Navigator.of(context).pop();
+                        },
+                        child: const Text('ダークモード'),
+                      ),
+                    ],
+                  );
+                },
+              );
+            },
+            child: ListTile(
+              title: const Text('アプリテーマ'),
+              trailing: SizedBox(
+                height: 48,
+                child: Container(
+                  padding: const EdgeInsets.all(6),
+                  decoration: BoxDecoration(
+                    color: Colors.grey.shade100,
+                    border: Border.all(
+                      color: Colors.blueAccent,
+                    ),
+                    borderRadius: BorderRadius.circular(16),
                   ),
-                  borderRadius: BorderRadius.circular(16),
-                ),
-                child: Image.asset(
-                  'assets/app-theme.png',
+                  child: Image.asset(
+                    'assets/app-theme.png',
+                  ),
                 ),
               ),
             ),
