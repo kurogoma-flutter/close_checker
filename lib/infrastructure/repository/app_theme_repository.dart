@@ -1,9 +1,13 @@
 import 'package:close_checker/infrastructure/data_source/local_data_source/shared_preference/shared_preference_data_source.dart';
+import 'package:hooks_riverpod/hooks_riverpod.dart';
 
 enum AppTheme {
   light,
   dark,
 }
+
+final appThemeRepository = Provider.autoDispose((ref) => AppThemeRepository(
+    sharedPreferenceDataSource: SharedPreferenceDataSource()));
 
 /// アプリテーマをSharedPreferenceで管理するためのRepository
 class AppThemeRepository {
@@ -11,16 +15,26 @@ class AppThemeRepository {
     required this.sharedPreferenceDataSource,
   });
 
+  // キャッシュする内部変数
+  AppTheme appTheme = AppTheme.light;
+
   final SharedPreferenceDataSource sharedPreferenceDataSource;
 
-  /// アプリテーマをSharedPreferenceに保存する
-  Future<void> saveAppTheme(String appTheme) async {
-    await sharedPreferenceDataSource.setString('appTheme', appTheme);
+  /// アプリテーマをSharedPreferenceに保存し、内部変数にも保存する
+  Future<void> saveAppTheme(AppTheme selectedTheme) async {
+    await sharedPreferenceDataSource.setString('appTheme', appTheme.toString());
+    appTheme = selectedTheme;
   }
 
-  /// SharedPreferenceからアプリテーマを取得する
-  Future<String?> getAppTheme() async {
-    return await sharedPreferenceDataSource.getString('appTheme');
+  /// SharedPreferenceからアプリテーマを取得し、内部変数にキャッシュする
+  Future<void> getAppTheme() async {
+    final appThemeString =
+        await sharedPreferenceDataSource.getString('appTheme');
+    if (appThemeString == null) {
+      appTheme = AppTheme.light;
+    } else {
+      appTheme = convertToAppTheme(appThemeString);
+    }
   }
 
   /// SharedPreferenceにアプリテーマが保存されているかどうかを確認する
@@ -28,9 +42,10 @@ class AppThemeRepository {
     return await sharedPreferenceDataSource.containsKey('appTheme');
   }
 
-  /// SharedPreferenceからアプリテーマを削除する
+  /// SharedPreferenceからアプリテーマを削除し、内部変数にも保存する
   Future<void> removeAppTheme() async {
     await sharedPreferenceDataSource.remove('appTheme');
+    appTheme = AppTheme.light;
   }
 
   /// テキストをアプリテーマ（enum）に変換する
