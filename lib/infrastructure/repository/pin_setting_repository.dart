@@ -1,4 +1,5 @@
 import 'package:close_checker/infrastructure/data_source/local_data_source/shared_preference/shared_preference_data_source.dart';
+import 'package:close_checker/infrastructure/data_source/local_data_source/shared_preference/shared_preference_keys.dart';
 
 /// PINをSharedPreferenceに保存するためのRepository
 ///
@@ -9,24 +10,25 @@ class PinSettingRepository {
   });
 
   final SharedPreferenceDataSource sharedPreferenceDataSource;
+  final _pinKey = SharedPreferenceKeys.pin;
 
   /// PINをSharedPreferenceに保存する
   Future<void> savePin(String pin) async {
-    await sharedPreferenceDataSource.setString('pin', pin);
+    await sharedPreferenceDataSource.setString(_pinKey, pin);
   }
 
   /// SharedPreferenceからPINを取得する
   Future<String?> getPin() async {
-    return await sharedPreferenceDataSource.getString('pin');
+    return await sharedPreferenceDataSource.getString(_pinKey);
   }
 
   /// SharedPreferenceにPINが保存されているかどうかを確認する
   Future<bool> containsPin() async {
-    return await sharedPreferenceDataSource.containsKey('pin');
+    return await sharedPreferenceDataSource.containsKey(_pinKey);
   }
 
   /// SharedPreferenceからPINを削除する
   Future<void> removePin() async {
-    await sharedPreferenceDataSource.remove('pin');
+    await sharedPreferenceDataSource.remove(_pinKey);
   }
 }
