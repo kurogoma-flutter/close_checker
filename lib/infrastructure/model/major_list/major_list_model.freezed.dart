@@ -39,7 +39,8 @@ mixin _$MajorListModel {
 abstract class $MajorListModelCopyWith<$Res> {
   factory $MajorListModelCopyWith(
           MajorListModel value, $Res Function(MajorListModel) then) =
-      _$MajorListModelCopyWithImpl<$Res>;
+      _$MajorListModelCopyWithImpl<$Res, MajorListModel>;
+  @useResult
   $Res call(
       {String listId,
       String content,
@@ -50,49 +51,51 @@ abstract class $MajorListModelCopyWith<$Res> {
 }
 
 /// @nodoc
-class _$MajorListModelCopyWithImpl<$Res>
+class _$MajorListModelCopyWithImpl<$Res, $Val extends MajorListModel>
     implements $MajorListModelCopyWith<$Res> {
   _$MajorListModelCopyWithImpl(this._value, this._then);
 
-  final MajorListModel _value;
   // ignore: unused_field
-  final $Res Function(MajorListModel) _then;
+  final $Val _value;
+  // ignore: unused_field
+  final $Res Function($Val) _then;
 
+  @pragma('vm:prefer-inline')
   @override
   $Res call({
-    Object? listId = freezed,
-    Object? content = freezed,
-    Object? createdUserId = freezed,
-    Object? isDeleted = freezed,
+    Object? listId = null,
+    Object? content = null,
+    Object? createdUserId = null,
+    Object? isDeleted = null,
     Object? createdAt = freezed,
     Object? updatedAt = freezed,
   }) {
     return _then(_value.copyWith(
-      listId: listId == freezed
+      listId: null == listId
           ? _value.listId
           : listId // ignore: cast_nullable_to_non_nullable
               as String,
-      content: content == freezed
+      content: null == content
           ? _value.content
           : content // ignore: cast_nullable_to_non_nullable
               as String,
-      createdUserId: createdUserId == freezed
+      createdUserId: null == createdUserId
           ? _value.createdUserId
           : createdUserId // ignore: cast_nullable_to_non_nullable
               as String,
-      isDeleted: isDeleted == freezed
+      isDeleted: null == isDeleted
           ? _value.isDeleted
           : isDeleted // ignore: cast_nullable_to_non_nullable
               as bool,
-      createdAt: createdAt == freezed
+      createdAt: freezed == createdAt
           ? _value.createdAt
           : createdAt // ignore: cast_nullable_to_non_nullable
               as DateTime?,
-      updatedAt: updatedAt == freezed
+      updatedAt: freezed == updatedAt
           ? _value.updatedAt
           : updatedAt // ignore: cast_nullable_to_non_nullable
               as DateTime?,
-    ));
+    ) as $Val);
   }
 }
 
@@ -103,6 +106,7 @@ abstract class _$$_MajorListModelCopyWith<$Res>
           _$_MajorListModel value, $Res Function(_$_MajorListModel) then) =
       __$$_MajorListModelCopyWithImpl<$Res>;
   @override
+  @useResult
   $Res call(
       {String listId,
       String content,
@@ -114,46 +118,44 @@ abstract class _$$_MajorListModelCopyWith<$Res>
 
 /// @nodoc
 class __$$_MajorListModelCopyWithImpl<$Res>
-    extends _$MajorListModelCopyWithImpl<$Res>
+    extends _$MajorListModelCopyWithImpl<$Res, _$_MajorListModel>
     implements _$$_MajorListModelCopyWith<$Res> {
   __$$_MajorListModelCopyWithImpl(
       _$_MajorListModel _value, $Res Function(_$_MajorListModel) _then)
-      : super(_value, (v) => _then(v as _$_MajorListModel));
+      : super(_value, _then);
 
-  @override
-  _$_MajorListModel get _value => super._value as _$_MajorListModel;
-
+  @pragma('vm:prefer-inline')
   @override
   $Res call({
-    Object? listId = freezed,
-    Object? content = freezed,
-    Object? createdUserId = freezed,
-    Object? isDeleted = freezed,
+    Object? listId = null,
+    Object? content = null,
+    Object? createdUserId = null,
+    Object? isDeleted = null,
     Object? createdAt = freezed,
     Object? updatedAt = freezed,
   }) {
     return _then(_$_MajorListModel(
-      listId: listId == freezed
+      listId: null == listId
           ? _value.listId
           : listId // ignore: cast_nullable_to_non_nullable
               as String,
-      content: content == freezed
+      content: null == content
           ? _value.content
           : content // ignore: cast_nullable_to_non_nullable
               as String,
-      createdUserId: createdUserId == freezed
+      createdUserId: null == createdUserId
           ? _value.createdUserId
           : createdUserId // ignore: cast_nullable_to_non_nullable
               as String,
-      isDeleted: isDeleted == freezed
+      isDeleted: null == isDeleted
           ? _value.isDeleted
           : isDeleted // ignore: cast_nullable_to_non_nullable
               as bool,
-      createdAt: createdAt == freezed
+      createdAt: freezed == createdAt
           ? _value.createdAt
           : createdAt // ignore: cast_nullable_to_non_nullable
               as DateTime?,
-      updatedAt: updatedAt == freezed
+      updatedAt: freezed == updatedAt
           ? _value.updatedAt
           : updatedAt // ignore: cast_nullable_to_non_nullable
               as DateTime?,
@@ -200,28 +202,26 @@ class _$_MajorListModel implements _MajorListModel {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
             other is _$_MajorListModel &&
-            const DeepCollectionEquality().equals(other.listId, listId) &&
-            const DeepCollectionEquality().equals(other.content, content) &&
-            const DeepCollectionEquality()
-                .equals(other.createdUserId, createdUserId) &&
-            const DeepCollectionEquality().equals(other.isDeleted, isDeleted) &&
-            const DeepCollectionEquality().equals(other.createdAt, createdAt) &&
-            const DeepCollectionEquality().equals(other.updatedAt, updatedAt));
+            (identical(other.listId, listId) || other.listId == listId) &&
+            (identical(other.content, content) || other.content == content) &&
+            (identical(other.createdUserId, createdUserId) ||
+                other.createdUserId == createdUserId) &&
+            (identical(other.isDeleted, isDeleted) ||
+                other.isDeleted == isDeleted) &&
+            (identical(other.createdAt, createdAt) ||
+                other.createdAt == createdAt) &&
+            (identical(other.updatedAt, updatedAt) ||
+                other.updatedAt == updatedAt));
   }
 
   @JsonKey(ignore: true)
   @override
-  int get hashCode => Object.hash(
-      runtimeType,
-      const DeepCollectionEquality().hash(listId),
-      const DeepCollectionEquality().hash(content),
-      const DeepCollectionEquality().hash(createdUserId),
-      const DeepCollectionEquality().hash(isDeleted),
-      const DeepCollectionEquality().hash(createdAt),
-      const DeepCollectionEquality().hash(updatedAt));
+  int get hashCode => Object.hash(runtimeType, listId, content, createdUserId,
+      isDeleted, createdAt, updatedAt);
 
   @JsonKey(ignore: true)
   @override
+  @pragma('vm:prefer-inline')
   _$$_MajorListModelCopyWith<_$_MajorListModel> get copyWith =>
       __$$_MajorListModelCopyWithImpl<_$_MajorListModel>(this, _$identity);
 

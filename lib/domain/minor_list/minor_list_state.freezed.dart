@@ -27,29 +27,32 @@ mixin _$MinorListState {
 abstract class $MinorListStateCopyWith<$Res> {
   factory $MinorListStateCopyWith(
           MinorListState value, $Res Function(MinorListState) then) =
-      _$MinorListStateCopyWithImpl<$Res>;
+      _$MinorListStateCopyWithImpl<$Res, MinorListState>;
+  @useResult
   $Res call({List<MinorListModel> minorList});
 }
 
 /// @nodoc
-class _$MinorListStateCopyWithImpl<$Res>
+class _$MinorListStateCopyWithImpl<$Res, $Val extends MinorListState>
     implements $MinorListStateCopyWith<$Res> {
   _$MinorListStateCopyWithImpl(this._value, this._then);
 
-  final MinorListState _value;
   // ignore: unused_field
-  final $Res Function(MinorListState) _then;
+  final $Val _value;
+  // ignore: unused_field
+  final $Res Function($Val) _then;
 
+  @pragma('vm:prefer-inline')
   @override
   $Res call({
-    Object? minorList = freezed,
+    Object? minorList = null,
   }) {
     return _then(_value.copyWith(
-      minorList: minorList == freezed
+      minorList: null == minorList
           ? _value.minorList
           : minorList // ignore: cast_nullable_to_non_nullable
               as List<MinorListModel>,
-    ));
+    ) as $Val);
   }
 }
 
@@ -60,26 +63,25 @@ abstract class _$$_MinorListStateCopyWith<$Res>
           _$_MinorListState value, $Res Function(_$_MinorListState) then) =
       __$$_MinorListStateCopyWithImpl<$Res>;
   @override
+  @useResult
   $Res call({List<MinorListModel> minorList});
 }
 
 /// @nodoc
 class __$$_MinorListStateCopyWithImpl<$Res>
-    extends _$MinorListStateCopyWithImpl<$Res>
+    extends _$MinorListStateCopyWithImpl<$Res, _$_MinorListState>
     implements _$$_MinorListStateCopyWith<$Res> {
   __$$_MinorListStateCopyWithImpl(
       _$_MinorListState _value, $Res Function(_$_MinorListState) _then)
-      : super(_value, (v) => _then(v as _$_MinorListState));
+      : super(_value, _then);
 
-  @override
-  _$_MinorListState get _value => super._value as _$_MinorListState;
-
+  @pragma('vm:prefer-inline')
   @override
   $Res call({
-    Object? minorList = freezed,
+    Object? minorList = null,
   }) {
     return _then(_$_MinorListState(
-      minorList: minorList == freezed
+      minorList: null == minorList
           ? _value._minorList
           : minorList // ignore: cast_nullable_to_non_nullable
               as List<MinorListModel>,
@@ -122,6 +124,7 @@ class _$_MinorListState implements _MinorListState {
 
   @JsonKey(ignore: true)
   @override
+  @pragma('vm:prefer-inline')
   _$$_MinorListStateCopyWith<_$_MinorListState> get copyWith =>
       __$$_MinorListStateCopyWithImpl<_$_MinorListState>(this, _$identity);
 }

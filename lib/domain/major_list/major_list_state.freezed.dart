@@ -27,29 +27,32 @@ mixin _$MajorListState {
 abstract class $MajorListStateCopyWith<$Res> {
   factory $MajorListStateCopyWith(
           MajorListState value, $Res Function(MajorListState) then) =
-      _$MajorListStateCopyWithImpl<$Res>;
+      _$MajorListStateCopyWithImpl<$Res, MajorListState>;
+  @useResult
   $Res call({List<MajorListModel> majorList});
 }
 
 /// @nodoc
-class _$MajorListStateCopyWithImpl<$Res>
+class _$MajorListStateCopyWithImpl<$Res, $Val extends MajorListState>
     implements $MajorListStateCopyWith<$Res> {
   _$MajorListStateCopyWithImpl(this._value, this._then);
 
-  final MajorListState _value;
   // ignore: unused_field
-  final $Res Function(MajorListState) _then;
+  final $Val _value;
+  // ignore: unused_field
+  final $Res Function($Val) _then;
 
+  @pragma('vm:prefer-inline')
   @override
   $Res call({
-    Object? majorList = freezed,
+    Object? majorList = null,
   }) {
     return _then(_value.copyWith(
-      majorList: majorList == freezed
+      majorList: null == majorList
           ? _value.majorList
           : majorList // ignore: cast_nullable_to_non_nullable
               as List<MajorListModel>,
-    ));
+    ) as $Val);
   }
 }
 
@@ -60,26 +63,25 @@ abstract class _$$_MajorListStateCopyWith<$Res>
           _$_MajorListState value, $Res Function(_$_MajorListState) then) =
       __$$_MajorListStateCopyWithImpl<$Res>;
   @override
+  @useResult
   $Res call({List<MajorListModel> majorList});
 }
 
 /// @nodoc
 class __$$_MajorListStateCopyWithImpl<$Res>
-    extends _$MajorListStateCopyWithImpl<$Res>
+    extends _$MajorListStateCopyWithImpl<$Res, _$_MajorListState>
     implements _$$_MajorListStateCopyWith<$Res> {
   __$$_MajorListStateCopyWithImpl(
       _$_MajorListState _value, $Res Function(_$_MajorListState) _then)
-      : super(_value, (v) => _then(v as _$_MajorListState));
+      : super(_value, _then);
 
-  @override
-  _$_MajorListState get _value => super._value as _$_MajorListState;
-
+  @pragma('vm:prefer-inline')
   @override
   $Res call({
-    Object? majorList = freezed,
+    Object? majorList = null,
   }) {
     return _then(_$_MajorListState(
-      majorList: majorList == freezed
+      majorList: null == majorList
           ? _value._majorList
           : majorList // ignore: cast_nullable_to_non_nullable
               as List<MajorListModel>,
@@ -122,6 +124,7 @@ class _$_MajorListState implements _MajorListState {
 
   @JsonKey(ignore: true)
   @override
+  @pragma('vm:prefer-inline')
   _$$_MajorListStateCopyWith<_$_MajorListState> get copyWith =>
       __$$_MajorListStateCopyWithImpl<_$_MajorListState>(this, _$identity);
 }

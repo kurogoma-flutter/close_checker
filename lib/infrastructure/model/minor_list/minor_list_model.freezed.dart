@@ -41,7 +41,8 @@ mixin _$MinorListModel {
 abstract class $MinorListModelCopyWith<$Res> {
   factory $MinorListModelCopyWith(
           MinorListModel value, $Res Function(MinorListModel) then) =
-      _$MinorListModelCopyWithImpl<$Res>;
+      _$MinorListModelCopyWithImpl<$Res, MinorListModel>;
+  @useResult
   $Res call(
       {String checkId,
       String listId,
@@ -54,59 +55,61 @@ abstract class $MinorListModelCopyWith<$Res> {
 }
 
 /// @nodoc
-class _$MinorListModelCopyWithImpl<$Res>
+class _$MinorListModelCopyWithImpl<$Res, $Val extends MinorListModel>
     implements $MinorListModelCopyWith<$Res> {
   _$MinorListModelCopyWithImpl(this._value, this._then);
 
-  final MinorListModel _value;
   // ignore: unused_field
-  final $Res Function(MinorListModel) _then;
+  final $Val _value;
+  // ignore: unused_field
+  final $Res Function($Val) _then;
 
+  @pragma('vm:prefer-inline')
   @override
   $Res call({
-    Object? checkId = freezed,
-    Object? listId = freezed,
-    Object? icon = freezed,
-    Object? content = freezed,
-    Object? isDone = freezed,
-    Object? isDeleted = freezed,
+    Object? checkId = null,
+    Object? listId = null,
+    Object? icon = null,
+    Object? content = null,
+    Object? isDone = null,
+    Object? isDeleted = null,
     Object? createdAt = freezed,
     Object? updatedAt = freezed,
   }) {
     return _then(_value.copyWith(
-      checkId: checkId == freezed
+      checkId: null == checkId
           ? _value.checkId
           : checkId // ignore: cast_nullable_to_non_nullable
               as String,
-      listId: listId == freezed
+      listId: null == listId
           ? _value.listId
           : listId // ignore: cast_nullable_to_non_nullable
               as String,
-      icon: icon == freezed
+      icon: null == icon
           ? _value.icon
           : icon // ignore: cast_nullable_to_non_nullable
               as String,
-      content: content == freezed
+      content: null == content
           ? _value.content
           : content // ignore: cast_nullable_to_non_nullable
               as String,
-      isDone: isDone == freezed
+      isDone: null == isDone
           ? _value.isDone
           : isDone // ignore: cast_nullable_to_non_nullable
               as bool,
-      isDeleted: isDeleted == freezed
+      isDeleted: null == isDeleted
           ? _value.isDeleted
           : isDeleted // ignore: cast_nullable_to_non_nullable
               as bool,
-      createdAt: createdAt == freezed
+      createdAt: freezed == createdAt
           ? _value.createdAt
           : createdAt // ignore: cast_nullable_to_non_nullable
               as DateTime?,
-      updatedAt: updatedAt == freezed
+      updatedAt: freezed == updatedAt
           ? _value.updatedAt
           : updatedAt // ignore: cast_nullable_to_non_nullable
               as DateTime?,
-    ));
+    ) as $Val);
   }
 }
 
@@ -117,6 +120,7 @@ abstract class _$$_MinorListModelCopyWith<$Res>
           _$_MinorListModel value, $Res Function(_$_MinorListModel) then) =
       __$$_MinorListModelCopyWithImpl<$Res>;
   @override
+  @useResult
   $Res call(
       {String checkId,
       String listId,
@@ -130,56 +134,54 @@ abstract class _$$_MinorListModelCopyWith<$Res>
 
 /// @nodoc
 class __$$_MinorListModelCopyWithImpl<$Res>
-    extends _$MinorListModelCopyWithImpl<$Res>
+    extends _$MinorListModelCopyWithImpl<$Res, _$_MinorListModel>
     implements _$$_MinorListModelCopyWith<$Res> {
   __$$_MinorListModelCopyWithImpl(
       _$_MinorListModel _value, $Res Function(_$_MinorListModel) _then)
-      : super(_value, (v) => _then(v as _$_MinorListModel));
+      : super(_value, _then);
 
-  @override
-  _$_MinorListModel get _value => super._value as _$_MinorListModel;
-
+  @pragma('vm:prefer-inline')
   @override
   $Res call({
-    Object? checkId = freezed,
-    Object? listId = freezed,
-    Object? icon = freezed,
-    Object? content = freezed,
-    Object? isDone = freezed,
-    Object? isDeleted = freezed,
+    Object? checkId = null,
+    Object? listId = null,
+    Object? icon = null,
+    Object? content = null,
+    Object? isDone = null,
+    Object? isDeleted = null,
     Object? createdAt = freezed,
     Object? updatedAt = freezed,
   }) {
     return _then(_$_MinorListModel(
-      checkId: checkId == freezed
+      checkId: null == checkId
           ? _value.checkId
           : checkId // ignore: cast_nullable_to_non_nullable
               as String,
-      listId: listId == freezed
+      listId: null == listId
           ? _value.listId
           : listId // ignore: cast_nullable_to_non_nullable
               as String,
-      icon: icon == freezed
+      icon: null == icon
           ? _value.icon
           : icon // ignore: cast_nullable_to_non_nullable
               as String,
-      content: content == freezed
+      content: null == content
           ? _value.content
           : content // ignore: cast_nullable_to_non_nullable
               as String,
-      isDone: isDone == freezed
+      isDone: null == isDone
           ? _value.isDone
           : isDone // ignore: cast_nullable_to_non_nullable
               as bool,
-      isDeleted: isDeleted == freezed
+      isDeleted: null == isDeleted
           ? _value.isDeleted
           : isDeleted // ignore: cast_nullable_to_non_nullable
               as bool,
-      createdAt: createdAt == freezed
+      createdAt: freezed == createdAt
           ? _value.createdAt
           : createdAt // ignore: cast_nullable_to_non_nullable
               as DateTime?,
-      updatedAt: updatedAt == freezed
+      updatedAt: freezed == updatedAt
           ? _value.updatedAt
           : updatedAt // ignore: cast_nullable_to_non_nullable
               as DateTime?,
@@ -232,31 +234,27 @@ class _$_MinorListModel implements _MinorListModel {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
             other is _$_MinorListModel &&
-            const DeepCollectionEquality().equals(other.checkId, checkId) &&
-            const DeepCollectionEquality().equals(other.listId, listId) &&
-            const DeepCollectionEquality().equals(other.icon, icon) &&
-            const DeepCollectionEquality().equals(other.content, content) &&
-            const DeepCollectionEquality().equals(other.isDone, isDone) &&
-            const DeepCollectionEquality().equals(other.isDeleted, isDeleted) &&
-            const DeepCollectionEquality().equals(other.createdAt, createdAt) &&
-            const DeepCollectionEquality().equals(other.updatedAt, updatedAt));
+            (identical(other.checkId, checkId) || other.checkId == checkId) &&
+            (identical(other.listId, listId) || other.listId == listId) &&
+            (identical(other.icon, icon) || other.icon == icon) &&
+            (identical(other.content, content) || other.content == content) &&
+            (identical(other.isDone, isDone) || other.isDone == isDone) &&
+            (identical(other.isDeleted, isDeleted) ||
+                other.isDeleted == isDeleted) &&
+            (identical(other.createdAt, createdAt) ||
+                other.createdAt == createdAt) &&
+            (identical(other.updatedAt, updatedAt) ||
+                other.updatedAt == updatedAt));
   }
 
   @JsonKey(ignore: true)
   @override
-  int get hashCode => Object.hash(
-      runtimeType,
-      const DeepCollectionEquality().hash(checkId),
-      const DeepCollectionEquality().hash(listId),
-      const DeepCollectionEquality().hash(icon),
-      const DeepCollectionEquality().hash(content),
-      const DeepCollectionEquality().hash(isDone),
-      const DeepCollectionEquality().hash(isDeleted),
-      const DeepCollectionEquality().hash(createdAt),
-      const DeepCollectionEquality().hash(updatedAt));
+  int get hashCode => Object.hash(runtimeType, checkId, listId, icon, content,
+      isDone, isDeleted, createdAt, updatedAt);
 
   @JsonKey(ignore: true)
   @override
+  @pragma('vm:prefer-inline')
   _$$_MinorListModelCopyWith<_$_MinorListModel> get copyWith =>
       __$$_MinorListModelCopyWithImpl<_$_MinorListModel>(this, _$identity);
 
