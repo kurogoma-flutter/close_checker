@@ -1,3 +1,6 @@
+import 'package:close_checker/domain/setting/setting_notifier.dart';
+import 'package:close_checker/infrastructure/repository/app_theme_repository.dart';
+import 'package:close_checker/presentation/common/color_theme.dart';
 import 'package:flutter/material.dart';
 import 'package:go_router/go_router.dart';
 import 'package:hooks_riverpod/hooks_riverpod.dart';
@@ -6,6 +9,8 @@ class SettingPage extends HookConsumerWidget {
   const SettingPage({Key? key}) : super(key: key);
   @override
   Widget build(BuildContext context, WidgetRef ref) {
+    final notifier = ref.watch(settingNotifierProvider.notifier);
+
     return SizedBox.expand(
       child: ListView(
         children: [
@@ -70,12 +75,11 @@ class SettingPage extends HookConsumerWidget {
                       ElevatedButton(
                         style: ElevatedButton.styleFrom(
                           // TODO: 共通にしたい
-                          backgroundColor:
-                              const Color.fromARGB(255, 64, 239, 255),
-                          foregroundColor: const Color.fromARGB(255, 1, 1, 68),
+                          backgroundColor: CustomColor.lightBlue,
+                          foregroundColor: CustomColor.darkBlue,
                         ),
                         onPressed: () {
-                          print('タップ');
+                          notifier.saveAppTheme(AppTheme.light);
                           Navigator.of(context).pop();
                         },
                         child: const Text('ライトモード'),
@@ -84,11 +88,11 @@ class SettingPage extends HookConsumerWidget {
                       ElevatedButton(
                         style: ElevatedButton.styleFrom(
                           // TODO: 共通にしたい
-                          backgroundColor: const Color.fromARGB(255, 1, 1, 68),
-                          foregroundColor: Colors.white,
+                          backgroundColor: CustomColor.darkBlue,
+                          foregroundColor: CustomColor.white,
                         ),
                         onPressed: () {
-                          print('タップ');
+                          notifier.saveAppTheme(AppTheme.dark);
                           Navigator.of(context).pop();
                         },
                         child: const Text('ダークモード'),
@@ -105,9 +109,9 @@ class SettingPage extends HookConsumerWidget {
                 child: Container(
                   padding: const EdgeInsets.all(6),
                   decoration: BoxDecoration(
-                    color: Colors.grey.shade100,
+                    color: CustomColor.white,
                     border: Border.all(
-                      color: Colors.blueAccent,
+                      color: CustomColor.blue,
                     ),
                     borderRadius: BorderRadius.circular(16),
                   ),
