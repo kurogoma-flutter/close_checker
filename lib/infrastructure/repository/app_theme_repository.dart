@@ -7,7 +7,7 @@ enum AppTheme {
   dark,
 }
 
-final appThemeRepository = Provider.autoDispose((ref) => AppThemeRepository(
+final appThemeRepository = Provider((ref) => AppThemeRepository(
     sharedPreferenceDataSource: SharedPreferenceDataSource()));
 
 /// アプリテーマをSharedPreferenceで管理するためのRepository

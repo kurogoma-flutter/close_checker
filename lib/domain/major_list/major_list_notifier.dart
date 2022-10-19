@@ -19,6 +19,20 @@ class MajorListNotifier extends StateNotifier<MajorListState> {
   final MajorListService majorListService;
 
   void init() {
-    logger.d('初期化実行！！！');
+    Future(() async {
+      await fetchMajorListModels();
+    });
+  }
+
+  /// 大分類のリストを取得する
+  Future<void> fetchMajorListModels() async {
+    try {
+      final majorListModels = await majorListService.fetchMajorListModels();
+      state = state.copyWith(
+        majorList: majorListModels,
+      );
+    } catch (e) {
+      logger.e(e);
+    }
   }
 }

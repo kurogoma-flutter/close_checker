@@ -1,9 +1,14 @@
 import 'package:close_checker/infrastructure/data_source/local_data_source/shared_preference/shared_preference_data_source.dart';
 import 'package:close_checker/infrastructure/data_source/local_data_source/shared_preference/shared_preference_keys.dart';
+import 'package:hooks_riverpod/hooks_riverpod.dart';
 
 /// PINをSharedPreferenceに保存するためのRepository
 ///
 /// SharedPreferenceDataSourceを使用して、PINを保存する
+final pinSettingRepositoryProvider = Provider((ref) => PinSettingRepository(
+      sharedPreferenceDataSource: SharedPreferenceDataSource(),
+    ));
+
 class PinSettingRepository {
   PinSettingRepository({
     required this.sharedPreferenceDataSource,

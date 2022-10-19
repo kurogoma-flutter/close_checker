@@ -2,9 +2,7 @@ import 'package:cloud_firestore/cloud_firestore.dart';
 
 /// CloudFirestoreとの通信を行うクラス
 class CloudFirestoreDataSource {
-  final FirebaseFirestore _firestore;
-
-  CloudFirestoreDataSource(this._firestore);
+  final FirebaseFirestore _firestore = FirebaseFirestore.instance;
 
   /// 指定したコレクションのドキュメントを取得する
   Future<List<Map<String, dynamic>>> getDocuments({
