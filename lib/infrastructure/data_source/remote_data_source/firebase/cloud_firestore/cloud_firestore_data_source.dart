@@ -57,6 +57,15 @@ class CloudFirestoreDataSource {
     await _firestore.collection(collection).add(data);
   }
 
+  /// setで指定したドキュメントを追加する
+  Future<void> setDocument({
+    required String collection,
+    required String documentId,
+    required Map<String, dynamic> data,
+  }) async {
+    await _firestore.collection(collection).doc(documentId).set(data);
+  }
+
   /// 指定したコレクションのドキュメントを更新する
   Future<void> updateDocument({
     required String collection,
