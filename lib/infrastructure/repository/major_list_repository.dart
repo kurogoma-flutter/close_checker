@@ -23,4 +23,23 @@ class MajorListRepository {
         .map((mapData) => MajorListModel.fromMap(mapData))
         .toList();
   }
+
+  /// MajorListを追加・更新する
+  Future<void> setMajorListModel(MajorListModel majorListModel) async {
+    // Firestoreに追加
+    await cloudFirestoreDataSource.setDocument(
+      collection: 'majorList',
+      documentId: majorListModel.listId,
+      data: majorListModel.toJson(),
+    );
+  }
+
+  /// MajorListを削除する
+  Future<void> deleteMajorListModel(MajorListModel majorListModel) async {
+    // Firestoreから削除
+    await cloudFirestoreDataSource.deleteDocument(
+      collection: 'majorList',
+      documentId: majorListModel.listId,
+    );
+  }
 }
