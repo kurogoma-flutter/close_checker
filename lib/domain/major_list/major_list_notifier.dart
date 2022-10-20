@@ -97,11 +97,14 @@ class MajorListNotifier extends StateNotifier<MajorListState> {
     }
   }
 
-  /// 大分類を削除する
+  /// 大分類を削除する（論理削除）
   Future<void> deleteMajorListModel({
     required MajorListModel majorListModel,
   }) async {
     try {
+      majorListModel = majorListModel.copyWith(
+        isDeleted: true,
+      );
       // 視覚的にstateを更新
       state = state.copyWith(
         majorList: state.majorList

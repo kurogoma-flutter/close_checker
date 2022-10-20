@@ -2,18 +2,20 @@ import 'package:close_checker/infrastructure/data_source/remote_data_source/fire
 import 'package:close_checker/infrastructure/model/major_list/major_list_model.dart';
 import 'package:hooks_riverpod/hooks_riverpod.dart';
 
-final majorListRepository = Provider((ref) => MajorListRepository(
+final majorListHistoryRepository = Provider((ref) => MajorListHistoryRepository(
       cloudFirestoreDataSource: CloudFirestoreDataSource(),
     ));
 
-class MajorListRepository {
-  MajorListRepository({
+class MajorListHistoryRepository {
+  MajorListHistoryRepository({
     required this.cloudFirestoreDataSource,
   });
 
   final CloudFirestoreDataSource cloudFirestoreDataSource;
 
   /// [userId]で指定したユーザーの持つMajorListを取得する
+  ///
+  /// 削除履歴のため、[isDeleted]がtrueのものを取得する
   Future<List<MajorListModel>> fetchMajorListModels(String userId) async {
     final documentList = await cloudFirestoreDataSource.getDocumentsMultiQuery(
       collection: 'majorList',
@@ -23,33 +25,31 @@ class MajorListRepository {
       },
       secondField: {
         'field': 'isDeleted',
-        'value': false,
+        'value': true,
       },
     );
-
     return documentList
         .map((mapData) => MajorListModel.fromMap(mapData))
         .toList();
   }
 
-  /// MajorListを追加・更新する
+  /// MajorListHistoryを復元する
   Future<void> setMajorListModel(MajorListModel majorListModel) async {
+    majorListModel = majorListModel.copyWith(isDeleted: false);
     // Firestoreに追加
     await cloudFirestoreDataSource.setDocument(
-      collection: 'majorList',
+      collection: 'majorListHistory',
       documentId: majorListModel.listId,
       data: majorListModel.toJson(),
     );
   }
 
-  /// MajorListを削除する（論理削除）
+  /// MajorListHistoryを削除する
   Future<void> deleteMajorListModel(MajorListModel majorListModel) async {
-    majorListModel = majorListModel.copyWith(isDeleted: true);
     // Firestoreから削除
-    await cloudFirestoreDataSource.setDocument(
-      collection: 'majorList',
+    await cloudFirestoreDataSource.deleteDocument(
+      collection: 'majorListHistory',
       documentId: majorListModel.listId,
-      data: majorListModel.toJson(),
     );
   }
 }

@@ -37,7 +37,7 @@ class CloudFirestoreDataSource {
   }
 
   /// 2つの[field]で指定したフィールドの値が[value]と一致するドキュメントを取得する
-  Future<List<Map<String, dynamic>>> getDocumentsByQuery2({
+  Future<List<Map<String, dynamic>>> getDocumentsMultiQuery({
     required String collection,
     required Map<String, dynamic> firstField,
     required Map<String, dynamic> secondField,

@@ -17,5 +17,7 @@ class MajorListNotifier extends StateNotifier<MajorListHistoryState> {
 
   final MajorListHistoryService majorListHistoryService;
 
-  void init() {}
+  void init() {
+    Future(() async {});
+  }
 }
