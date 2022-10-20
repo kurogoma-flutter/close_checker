@@ -36,6 +36,21 @@ class CloudFirestoreDataSource {
     return documents;
   }
 
+  /// 2つの[field]で指定したフィールドの値が[value]と一致するドキュメントを取得する
+  Future<List<Map<String, dynamic>>> getDocumentsByQuery2({
+    required String collection,
+    required Map<String, dynamic> firstField,
+    required Map<String, dynamic> secondField,
+  }) async {
+    final snapshot = await _firestore
+        .collection(collection)
+        .where(firstField['field'], isEqualTo: firstField['value'])
+        .where(secondField['field'], isEqualTo: secondField['value'])
+        .get();
+    final documents = snapshot.docs.map((e) => e.data()).toList();
+    return documents;
+  }
+
   /// [field]で指定したフィールドの日付がcreatedAt以降のドキュメントを取得する
   Future<List<Map<String, dynamic>>> getDocumentsByCreatedAt({
     required String collection,
