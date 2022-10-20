@@ -27,8 +27,11 @@ class MajorListNotifier extends StateNotifier<MajorListState> {
 
   /// 大分類のリストを取得する
   Future<void> fetchMajorListModels() async {
+    // TODO: FirebaseAuthのユーザーIDを取得する
+    const userId = 'xxxxx';
     try {
-      final majorListModels = await majorListService.fetchMajorListModels();
+      final majorListModels =
+          await majorListService.fetchMajorListModels(userId);
       state = state.copyWith(
         majorList: majorListModels,
       );

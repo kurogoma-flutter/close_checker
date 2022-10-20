@@ -14,8 +14,8 @@ class MajorListService {
   final MajorListRepository majorListRepository;
 
   /// 大分類のリストを取得する
-  Future<List<MajorListModel>> fetchMajorListModels() async {
-    return await majorListRepository.fetchMajorListModels();
+  Future<List<MajorListModel>> fetchMajorListModels(String userId) async {
+    return await majorListRepository.fetchMajorListModels(userId);
   }
 
   /// 大分類を追加・更新する

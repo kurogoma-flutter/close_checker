@@ -13,12 +13,13 @@ class MajorListRepository {
 
   final CloudFirestoreDataSource cloudFirestoreDataSource;
 
-  /// MajorListを取得する
-  Future<List<MajorListModel>> fetchMajorListModels() async {
-    final documentList = await cloudFirestoreDataSource.getDocuments(
+  /// [userId]で指定したユーザーの持つMajorListを取得する
+  Future<List<MajorListModel>> fetchMajorListModels(String userId) async {
+    final documentList = await cloudFirestoreDataSource.getDocumentsByQuery(
       collection: 'majorList',
+      field: 'createdUserId',
+      value: userId,
     );
-
     return documentList
         .map((mapData) => MajorListModel.fromMap(mapData))
         .toList();
