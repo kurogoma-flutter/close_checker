@@ -1,5 +1,6 @@
 import 'package:close_checker/domain/major_list/major_list_service.dart';
 import 'package:close_checker/domain/major_list/major_list_state.dart';
+import 'package:close_checker/infrastructure/model/major_list/major_list_model.dart';
 import 'package:close_checker/utility/logger.dart';
 import 'package:hooks_riverpod/hooks_riverpod.dart';
 
@@ -31,6 +32,81 @@ class MajorListNotifier extends StateNotifier<MajorListState> {
       state = state.copyWith(
         majorList: majorListModels,
       );
+    } catch (e) {
+      logger.e(e);
+    }
+  }
+
+  /// 大分類を追加する
+  ///
+  /// [content] 入力した内容
+  Future<void> addMajorListModel({
+    required String content,
+  }) async {
+    // TODO: FirebaseAuthでログインしているユーザーのIDを取得する
+    const createdUserId = 'xxxxxx';
+    try {
+      MajorListModel majorListModel = MajorListModel.initialData();
+      // 入力値を反映
+      majorListModel = majorListModel.copyWith(
+        content: content,
+        createdUserId: createdUserId,
+      );
+      // 視覚的にstateを更新
+      state = state.copyWith(
+        majorList: [...state.majorList, majorListModel],
+      );
+      // Firestoreに追加
+      await majorListService.setMajorListModel(majorListModel);
+    } catch (e) {
+      logger.e(e);
+    }
+  }
+
+  /// 大分類を更新する
+  ///
+  /// [majorListModel] 更新する大分類
+  ///
+  /// [content] 入力した内容
+  Future<void> updateMajorListModel({
+    required MajorListModel majorListModel,
+    required String content,
+  }) async {
+    try {
+      // 入力値を反映
+      majorListModel = majorListModel.copyWith(
+        content: content,
+      );
+      // 視覚的にstateを更新
+      state = state.copyWith(
+        majorList: state.majorList.map((model) {
+          if (model.listId == majorListModel.listId) {
+            return majorListModel;
+          } else {
+            return model;
+          }
+        }).toList(),
+      );
+      // Firestoreに更新
+      await majorListService.setMajorListModel(majorListModel);
+    } catch (e) {
+      logger.e(e);
+    }
+  }
+
+  /// 大分類を削除する
+  Future<void> deleteMajorListModel({
+    required MajorListModel majorListModel,
+  }) async {
+    try {
+      // 視覚的にstateを更新
+      state = state.copyWith(
+        majorList: state.majorList
+            .where((model) => model.listId != majorListModel.listId)
+            .toList(),
+      );
+      // Firestoreに削除
+      await majorListService.deleteMajorListModel(majorListModel);
     } catch (e) {
       logger.e(e);
     }

@@ -17,4 +17,14 @@ class MajorListService {
   Future<List<MajorListModel>> fetchMajorListModels() async {
     return await majorListRepository.fetchMajorListModels();
   }
+
+  /// 大分類を追加・更新する
+  Future<void> setMajorListModel(MajorListModel majorListModel) async {
+    await majorListRepository.setMajorListModel(majorListModel);
+  }
+
+  /// 大分類を削除する
+  Future<void> deleteMajorListModel(MajorListModel majorListModel) async {
+    await majorListRepository.deleteMajorListModel(majorListModel);
+  }
 }
