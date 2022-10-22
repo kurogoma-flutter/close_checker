@@ -21,7 +21,7 @@ class MajorListNotifier extends StateNotifier<MajorListState> {
 
   void init() {
     Future(() async {
-      await fetchMajorListModels();
+      // await fetchMajorListModels();
     });
   }
 

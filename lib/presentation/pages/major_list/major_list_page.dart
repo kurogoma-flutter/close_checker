@@ -11,10 +11,8 @@ class MajorListPage extends HookConsumerWidget {
 
   @override
   Widget build(BuildContext context, WidgetRef ref) {
-    // ignore: unused_local_variable
     final state = ref.watch(majorListNotifierProvider);
-    // ignore: unused_local_variable
-    final notifier = ref.watch(majorListNotifierProvider.notifier);
+    final notifier = ref.read(majorListNotifierProvider.notifier);
 
     return Column(
       children: [
