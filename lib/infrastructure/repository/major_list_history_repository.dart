@@ -36,9 +36,9 @@ class MajorListHistoryRepository {
   /// MajorListHistoryを復元する
   Future<void> setMajorListModel(MajorListModel majorListModel) async {
     majorListModel = majorListModel.copyWith(isDeleted: false);
-    // Firestoreに追加
+    // Firestoreにセットする
     await cloudFirestoreDataSource.setDocument(
-      collection: 'majorListHistory',
+      collection: 'majorList',
       documentId: majorListModel.listId,
       data: majorListModel.toJson(),
     );
@@ -48,7 +48,7 @@ class MajorListHistoryRepository {
   Future<void> deleteMajorListModel(MajorListModel majorListModel) async {
     // Firestoreから削除
     await cloudFirestoreDataSource.deleteDocument(
-      collection: 'majorListHistory',
+      collection: 'majorList',
       documentId: majorListModel.listId,
     );
   }

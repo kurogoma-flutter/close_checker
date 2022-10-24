@@ -22,20 +22,12 @@ class MajorListHistoryService {
   }
 
   /// MajorListHistoryを復元する
-  Future<void> setMajorListModel(
-    MajorListModel majorListModel,
-  ) async {
-    await majorListHistoryRepository.setMajorListModel(
-      majorListModel,
-    );
+  Future<void> setMajorListModel(MajorListModel majorListModel) async {
+    await majorListHistoryRepository.setMajorListModel(majorListModel);
   }
 
   /// MajorListHistoryを削除する
-  Future<void> deleteMajorListModel(
-    MajorListModel majorListModel,
-  ) async {
-    await majorListHistoryRepository.deleteMajorListModel(
-      majorListModel,
-    );
+  Future<void> deleteMajorListModel(MajorListModel majorListModel) async {
+    await majorListHistoryRepository.deleteMajorListModel(majorListModel);
   }
 }
