@@ -17,6 +17,7 @@ final _privateConstructorUsedError = UnsupportedError(
 /// @nodoc
 mixin _$AuthState {
   bool get hasError => throw _privateConstructorUsedError;
+  bool get isLoading => throw _privateConstructorUsedError;
 
   @JsonKey(ignore: true)
   $AuthStateCopyWith<AuthState> get copyWith =>
@@ -28,7 +29,7 @@ abstract class $AuthStateCopyWith<$Res> {
   factory $AuthStateCopyWith(AuthState value, $Res Function(AuthState) then) =
       _$AuthStateCopyWithImpl<$Res, AuthState>;
   @useResult
-  $Res call({bool hasError});
+  $Res call({bool hasError, bool isLoading});
 }
 
 /// @nodoc
@@ -45,11 +46,16 @@ class _$AuthStateCopyWithImpl<$Res, $Val extends AuthState>
   @override
   $Res call({
     Object? hasError = null,
+    Object? isLoading = null,
   }) {
     return _then(_value.copyWith(
       hasError: null == hasError
           ? _value.hasError
           : hasError // ignore: cast_nullable_to_non_nullable
+              as bool,
+      isLoading: null == isLoading
+          ? _value.isLoading
+          : isLoading // ignore: cast_nullable_to_non_nullable
               as bool,
     ) as $Val);
   }
@@ -62,7 +68,7 @@ abstract class _$$_AuthStateCopyWith<$Res> implements $AuthStateCopyWith<$Res> {
       __$$_AuthStateCopyWithImpl<$Res>;
   @override
   @useResult
-  $Res call({bool hasError});
+  $Res call({bool hasError, bool isLoading});
 }
 
 /// @nodoc
@@ -77,11 +83,16 @@ class __$$_AuthStateCopyWithImpl<$Res>
   @override
   $Res call({
     Object? hasError = null,
+    Object? isLoading = null,
   }) {
     return _then(_$_AuthState(
       hasError: null == hasError
           ? _value.hasError
           : hasError // ignore: cast_nullable_to_non_nullable
+              as bool,
+      isLoading: null == isLoading
+          ? _value.isLoading
+          : isLoading // ignore: cast_nullable_to_non_nullable
               as bool,
     ));
   }
@@ -90,15 +101,18 @@ class __$$_AuthStateCopyWithImpl<$Res>
 /// @nodoc
 
 class _$_AuthState implements _AuthState {
-  const _$_AuthState({this.hasError = false});
+  const _$_AuthState({this.hasError = false, this.isLoading = false});
 
   @override
   @JsonKey()
   final bool hasError;
+  @override
+  @JsonKey()
+  final bool isLoading;
 
   @override
   String toString() {
-    return 'AuthState(hasError: $hasError)';
+    return 'AuthState(hasError: $hasError, isLoading: $isLoading)';
   }
 
   @override
@@ -107,11 +121,13 @@ class _$_AuthState implements _AuthState {
         (other.runtimeType == runtimeType &&
             other is _$_AuthState &&
             (identical(other.hasError, hasError) ||
-                other.hasError == hasError));
+                other.hasError == hasError) &&
+            (identical(other.isLoading, isLoading) ||
+                other.isLoading == isLoading));
   }
 
   @override
-  int get hashCode => Object.hash(runtimeType, hasError);
+  int get hashCode => Object.hash(runtimeType, hasError, isLoading);
 
   @JsonKey(ignore: true)
   @override
@@ -121,10 +137,13 @@ class _$_AuthState implements _AuthState {
 }
 
 abstract class _AuthState implements AuthState {
-  const factory _AuthState({final bool hasError}) = _$_AuthState;
+  const factory _AuthState({final bool hasError, final bool isLoading}) =
+      _$_AuthState;
 
   @override
   bool get hasError;
+  @override
+  bool get isLoading;
   @override
   @JsonKey(ignore: true)
   _$$_AuthStateCopyWith<_$_AuthState> get copyWith =>
