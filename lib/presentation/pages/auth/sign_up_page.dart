@@ -1,18 +1,15 @@
 import 'package:close_checker/presentation/common/base_scaffold_no_bnb.dart';
+import 'package:flutter/material.dart';
 import 'package:hooks_riverpod/hooks_riverpod.dart';
 
-import 'package:flutter/material.dart';
-
-/// ログインフォーム
-class LoginPage extends HookConsumerWidget {
-  const LoginPage({super.key});
-
+class SignUpPage extends HookConsumerWidget {
+  const SignUpPage({super.key});
   @override
   Widget build(BuildContext context, WidgetRef ref) {
     return BaseScaffoldWithNoNav(
       child: Column(
         children: const [
-          Text('ログインフォーム'),
+          Text('サインアップフォーム'),
           TextField(
             decoration: InputDecoration(
               hintText: 'メールアドレス',

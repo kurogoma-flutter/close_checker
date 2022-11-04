@@ -1,4 +1,6 @@
 import 'package:close_checker/presentation/common/base_scaffold.dart';
+import 'package:close_checker/presentation/pages/auth/login_page.dart';
+import 'package:close_checker/presentation/pages/auth/sign_up_page.dart';
 import 'package:close_checker/presentation/pages/major_list_history/major_list_history_page.dart';
 import 'package:close_checker/presentation/pages/minor_list_history/minor_list_history_page.dart';
 import 'package:close_checker/presentation/pages/errors/simple_error_page.dart';
@@ -21,6 +23,22 @@ final GoRouter router = GoRouter(
   initialLocation: '/list',
   navigatorKey: navigatorKey,
   routes: [
+    GoRoute(
+      path: '/login',
+      pageBuilder: (BuildContext context, GoRouterState state) =>
+          NoAnimationTransition(
+        key: state.pageKey,
+        child: const LoginPage(),
+      ),
+    ),
+    GoRoute(
+      path: '/signUp',
+      pageBuilder: (BuildContext context, GoRouterState state) =>
+          NoAnimationTransition(
+        key: state.pageKey,
+        child: const SignUpPage(),
+      ),
+    ),
     ShellRoute(
         navigatorKey: shellRouteKey,
         builder: ((context, state, child) {
