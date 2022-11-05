@@ -10,20 +10,33 @@ class LoginPage extends HookConsumerWidget {
   @override
   Widget build(BuildContext context, WidgetRef ref) {
     return BaseScaffoldWithNoNav(
-      child: Column(
-        children: const [
-          Text('ログインフォーム'),
-          TextField(
-            decoration: InputDecoration(
-              hintText: 'メールアドレス',
+      child: SingleChildScrollView(
+        child: Column(
+          children: const [
+            // メールアドレス入力フォーム
+            TextField(
+              decoration: InputDecoration(
+                hintText: 'メールアドレス',
+              ),
             ),
-          ),
-          TextField(
-            decoration: InputDecoration(
-              hintText: 'パスワード',
+            // パスワード入力フォーム
+            TextField(
+              decoration: InputDecoration(
+                hintText: 'パスワード',
+              ),
             ),
-          ),
-        ],
+            // ログインボタン
+            ElevatedButton(
+              onPressed: null,
+              child: Text('ログイン'),
+            ),
+            // アカウント作成ボタン
+            TextButton(
+              onPressed: null,
+              child: Text('アカウントを作成する'),
+            ),
+          ],
+        ),
       ),
     );
   }
