@@ -1,5 +1,5 @@
 import 'package:close_checker/infrastructure/data_source/remote_data_source/firebase/cloud_firestore/cloud_firestore_data_source.dart';
-import 'package:uuid/uuid.dart';
+import 'package:close_checker/infrastructure/model/inquiry/inquiry_model.dart';
 
 /// お問合せ送信をするためのリポジトリ
 class InquiryRepository {
@@ -10,11 +10,11 @@ class InquiryRepository {
   final CloudFirestoreDataSource cloudFirestoreDataSource;
 
   /// お問合せをFirestoreに送信する
-  Future<void> sendInquiry(String inquiry, Map<String, dynamic> data) async {
+  Future<void> sendInquiry(String inquiry, InquiryModel data) async {
     await cloudFirestoreDataSource.setDocument(
       collection: 'inquiry',
-      documentId: const Uuid().v1(),
-      data: data,
+      documentId: data.inquiryId,
+      data: data.toJson(),
     );
   }
 }
