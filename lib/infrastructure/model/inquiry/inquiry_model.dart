@@ -10,9 +10,10 @@ part 'inquiry_model.g.dart';
 abstract class InquiryModel with _$InquiryModel {
   const factory InquiryModel({
     required final String inquiryId,
-    required final String label,
+    required final String title,
     required final String content,
     required final String createdUserId,
+    required final String email,
     required final bool isReplied,
     @CreatedAtField() DateTime? createdAt,
   }) = _InquiryModel;
@@ -22,17 +23,19 @@ abstract class InquiryModel with _$InquiryModel {
 
   factory InquiryModel.initialData() => InquiryModel(
         inquiryId: const Uuid().v1(),
-        label: '選択してください',
+        title: '選択してください',
         content: '',
         createdUserId: '',
+        email: '',
         isReplied: false,
       );
 
   factory InquiryModel.fromMap(Map<String, dynamic> data) => InquiryModel(
         inquiryId: data['inquiryId'] as String,
-        label: data['label'] as String,
+        title: data['label'] as String,
         content: data['content'] as String,
         createdUserId: data['createdUserId'] as String,
+        email: data['email'] as String,
         isReplied: data['isReplied'] as bool,
         createdAt: data['createdAt'] as DateTime?,
       );

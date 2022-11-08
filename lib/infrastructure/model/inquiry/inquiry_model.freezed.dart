@@ -21,9 +21,10 @@ InquiryModel _$InquiryModelFromJson(Map<String, dynamic> json) {
 /// @nodoc
 mixin _$InquiryModel {
   String get inquiryId => throw _privateConstructorUsedError;
-  String get label => throw _privateConstructorUsedError;
+  String get title => throw _privateConstructorUsedError;
   String get content => throw _privateConstructorUsedError;
   String get createdUserId => throw _privateConstructorUsedError;
+  String get email => throw _privateConstructorUsedError;
   bool get isReplied => throw _privateConstructorUsedError;
   @CreatedAtField()
   DateTime? get createdAt => throw _privateConstructorUsedError;
@@ -42,9 +43,10 @@ abstract class $InquiryModelCopyWith<$Res> {
   @useResult
   $Res call(
       {String inquiryId,
-      String label,
+      String title,
       String content,
       String createdUserId,
+      String email,
       bool isReplied,
       @CreatedAtField() DateTime? createdAt});
 }
@@ -63,9 +65,10 @@ class _$InquiryModelCopyWithImpl<$Res, $Val extends InquiryModel>
   @override
   $Res call({
     Object? inquiryId = null,
-    Object? label = null,
+    Object? title = null,
     Object? content = null,
     Object? createdUserId = null,
+    Object? email = null,
     Object? isReplied = null,
     Object? createdAt = freezed,
   }) {
@@ -74,9 +77,9 @@ class _$InquiryModelCopyWithImpl<$Res, $Val extends InquiryModel>
           ? _value.inquiryId
           : inquiryId // ignore: cast_nullable_to_non_nullable
               as String,
-      label: null == label
-          ? _value.label
-          : label // ignore: cast_nullable_to_non_nullable
+      title: null == title
+          ? _value.title
+          : title // ignore: cast_nullable_to_non_nullable
               as String,
       content: null == content
           ? _value.content
@@ -85,6 +88,10 @@ class _$InquiryModelCopyWithImpl<$Res, $Val extends InquiryModel>
       createdUserId: null == createdUserId
           ? _value.createdUserId
           : createdUserId // ignore: cast_nullable_to_non_nullable
+              as String,
+      email: null == email
+          ? _value.email
+          : email // ignore: cast_nullable_to_non_nullable
               as String,
       isReplied: null == isReplied
           ? _value.isReplied
@@ -108,9 +115,10 @@ abstract class _$$_InquiryModelCopyWith<$Res>
   @useResult
   $Res call(
       {String inquiryId,
-      String label,
+      String title,
       String content,
       String createdUserId,
+      String email,
       bool isReplied,
       @CreatedAtField() DateTime? createdAt});
 }
@@ -127,9 +135,10 @@ class __$$_InquiryModelCopyWithImpl<$Res>
   @override
   $Res call({
     Object? inquiryId = null,
-    Object? label = null,
+    Object? title = null,
     Object? content = null,
     Object? createdUserId = null,
+    Object? email = null,
     Object? isReplied = null,
     Object? createdAt = freezed,
   }) {
@@ -138,9 +147,9 @@ class __$$_InquiryModelCopyWithImpl<$Res>
           ? _value.inquiryId
           : inquiryId // ignore: cast_nullable_to_non_nullable
               as String,
-      label: null == label
-          ? _value.label
-          : label // ignore: cast_nullable_to_non_nullable
+      title: null == title
+          ? _value.title
+          : title // ignore: cast_nullable_to_non_nullable
               as String,
       content: null == content
           ? _value.content
@@ -149,6 +158,10 @@ class __$$_InquiryModelCopyWithImpl<$Res>
       createdUserId: null == createdUserId
           ? _value.createdUserId
           : createdUserId // ignore: cast_nullable_to_non_nullable
+              as String,
+      email: null == email
+          ? _value.email
+          : email // ignore: cast_nullable_to_non_nullable
               as String,
       isReplied: null == isReplied
           ? _value.isReplied
@@ -167,9 +180,10 @@ class __$$_InquiryModelCopyWithImpl<$Res>
 class _$_InquiryModel implements _InquiryModel {
   const _$_InquiryModel(
       {required this.inquiryId,
-      required this.label,
+      required this.title,
       required this.content,
       required this.createdUserId,
+      required this.email,
       required this.isReplied,
       @CreatedAtField() this.createdAt});
 
@@ -179,11 +193,13 @@ class _$_InquiryModel implements _InquiryModel {
   @override
   final String inquiryId;
   @override
-  final String label;
+  final String title;
   @override
   final String content;
   @override
   final String createdUserId;
+  @override
+  final String email;
   @override
   final bool isReplied;
   @override
@@ -192,7 +208,7 @@ class _$_InquiryModel implements _InquiryModel {
 
   @override
   String toString() {
-    return 'InquiryModel(inquiryId: $inquiryId, label: $label, content: $content, createdUserId: $createdUserId, isReplied: $isReplied, createdAt: $createdAt)';
+    return 'InquiryModel(inquiryId: $inquiryId, title: $title, content: $content, createdUserId: $createdUserId, email: $email, isReplied: $isReplied, createdAt: $createdAt)';
   }
 
   @override
@@ -202,10 +218,11 @@ class _$_InquiryModel implements _InquiryModel {
             other is _$_InquiryModel &&
             (identical(other.inquiryId, inquiryId) ||
                 other.inquiryId == inquiryId) &&
-            (identical(other.label, label) || other.label == label) &&
+            (identical(other.title, title) || other.title == title) &&
             (identical(other.content, content) || other.content == content) &&
             (identical(other.createdUserId, createdUserId) ||
                 other.createdUserId == createdUserId) &&
+            (identical(other.email, email) || other.email == email) &&
             (identical(other.isReplied, isReplied) ||
                 other.isReplied == isReplied) &&
             (identical(other.createdAt, createdAt) ||
@@ -214,8 +231,8 @@ class _$_InquiryModel implements _InquiryModel {
 
   @JsonKey(ignore: true)
   @override
-  int get hashCode => Object.hash(runtimeType, inquiryId, label, content,
-      createdUserId, isReplied, createdAt);
+  int get hashCode => Object.hash(runtimeType, inquiryId, title, content,
+      createdUserId, email, isReplied, createdAt);
 
   @JsonKey(ignore: true)
   @override
@@ -234,9 +251,10 @@ class _$_InquiryModel implements _InquiryModel {
 abstract class _InquiryModel implements InquiryModel {
   const factory _InquiryModel(
       {required final String inquiryId,
-      required final String label,
+      required final String title,
       required final String content,
       required final String createdUserId,
+      required final String email,
       required final bool isReplied,
       @CreatedAtField() final DateTime? createdAt}) = _$_InquiryModel;
 
@@ -246,11 +264,13 @@ abstract class _InquiryModel implements InquiryModel {
   @override
   String get inquiryId;
   @override
-  String get label;
+  String get title;
   @override
   String get content;
   @override
   String get createdUserId;
+  @override
+  String get email;
   @override
   bool get isReplied;
   @override

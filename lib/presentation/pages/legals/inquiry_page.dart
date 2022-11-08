@@ -97,20 +97,6 @@ class InquiryContentForm extends StatelessWidget {
   }
 }
 
-/// お問合せ返信先メールアドレスを入力するフォーム
-class InquiryEmailForm extends StatelessWidget {
-  const InquiryEmailForm({Key? key}) : super(key: key);
-
-  @override
-  Widget build(BuildContext context) {
-    return TextFormField(
-      decoration: const InputDecoration(
-        hintText: 'メールアドレスを入力してください',
-      ),
-    );
-  }
-}
-
 /// お問合せ送信ボタン
 class InquirySendButton extends StatelessWidget {
   const InquirySendButton({Key? key}) : super(key: key);
