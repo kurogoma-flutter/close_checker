@@ -62,7 +62,6 @@ class _BaseScaffoldState extends State<BaseScaffold> {
                       child: Image.asset('assets/list-icon.png'),
                     ),
                     onTap: () {
-                      logger.d('タップテスト');
                       context.go('/list');
                     },
                   ),
@@ -75,7 +74,6 @@ class _BaseScaffoldState extends State<BaseScaffold> {
                       child: Image.asset('assets/setting-icon.png'),
                     ),
                     onTap: () {
-                      logger.d('タップテスト');
                       context.go('/setting');
                     },
                   ),
