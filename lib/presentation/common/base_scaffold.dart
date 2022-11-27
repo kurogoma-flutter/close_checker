@@ -1,4 +1,3 @@
-import 'package:close_checker/utility/logger.dart';
 import 'package:flutter/material.dart';
 import 'package:go_router/go_router.dart';
 
