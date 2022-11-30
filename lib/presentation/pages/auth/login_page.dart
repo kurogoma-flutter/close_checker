@@ -1,4 +1,5 @@
 import 'package:close_checker/presentation/common/base_scaffold_no_bnb.dart';
+import 'package:go_router/go_router.dart';
 import 'package:hooks_riverpod/hooks_riverpod.dart';
 
 import 'package:flutter/material.dart';
@@ -46,9 +47,9 @@ class LoginPage extends HookConsumerWidget {
                     ),
                   ),
                   // アカウント作成ボタン
-                  const TextButton(
-                    onPressed: null,
-                    child: Text(
+                  TextButton(
+                    onPressed: () => context.go('/signUp'),
+                    child: const Text(
                       'アカウントを作成する',
                       style: TextStyle(
                         fontSize: 16,

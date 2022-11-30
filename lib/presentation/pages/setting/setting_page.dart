@@ -199,7 +199,7 @@ class SettingPage extends HookConsumerWidget {
           ),
           const Divider(),
           ElevatedButton(
-            onPressed: () => context.go('/login'),
+            onPressed: () => context.go('/signUp'),
             child: const Text('デバッグページ'),
           ),
         ],
