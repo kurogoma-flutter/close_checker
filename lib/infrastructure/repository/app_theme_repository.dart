@@ -3,8 +3,21 @@ import 'package:close_checker/infrastructure/data_source/local_data_source/share
 import 'package:hooks_riverpod/hooks_riverpod.dart';
 
 enum AppTheme {
-  light,
-  dark,
+  light('light'),
+  dark('dark'),
+  ;
+
+  const AppTheme(this.value);
+  final String value;
+}
+
+enum AppFontSize {
+  large('large'),
+  small('small'),
+  ;
+
+  const AppFontSize(this.value);
+  final String value;
 }
 
 final appThemeRepository = Provider((ref) => AppThemeRepository(
@@ -60,6 +73,37 @@ class AppThemeRepository {
         return AppTheme.dark;
       default:
         return AppTheme.light;
+    }
+  }
+
+  /// フォントサイズの設定をSharedPreferenceに保存する
+  Future<void> saveAppFontSize(AppFontSize selectedFontSize) async {
+    await sharedPreferenceDataSource.setString(
+      SharedPreferenceKeys.appFontSize,
+      selectedFontSize.value,
+    );
+  }
+
+  /// SharedPreferenceからフォントサイズの設定を取得する
+  Future<AppFontSize> getAppFontSize() async {
+    final appFontSizeString = await sharedPreferenceDataSource
+        .getString(SharedPreferenceKeys.appFontSize);
+    if (appFontSizeString == null) {
+      return AppFontSize.large;
+    } else {
+      return convertToAppFontSize(appFontSizeString);
+    }
+  }
+
+  /// テキストをフォントサイズ（enum）に変換する
+  AppFontSize convertToAppFontSize(String appFontSize) {
+    switch (appFontSize) {
+      case 'large':
+        return AppFontSize.large;
+      case 'small':
+        return AppFontSize.small;
+      default:
+        return AppFontSize.large;
     }
   }
 }

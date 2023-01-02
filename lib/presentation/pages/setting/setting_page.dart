@@ -40,41 +40,38 @@ class SettingPage extends HookConsumerWidget {
             ),
           ),
           const Divider(),
-          ListTile(
-            title: const Text('フォントサイズ'),
-            trailing: SizedBox(
-              height: 48,
-              child: Container(
-                padding: const EdgeInsets.all(6),
-                decoration: BoxDecoration(
-                  color: Colors.grey.shade100,
-                  border: Border.all(
-                    color: Colors.blueAccent,
+          GestureDetector(
+            child: ListTile(
+              title: const Text('フォントサイズ'),
+              trailing: SizedBox(
+                height: 48,
+                child: Container(
+                  padding: const EdgeInsets.all(6),
+                  decoration: BoxDecoration(
+                    color: Colors.grey.shade100,
+                    border: Border.all(
+                      color: Colors.blueAccent,
+                    ),
+                    borderRadius: BorderRadius.circular(16),
                   ),
-                  borderRadius: BorderRadius.circular(16),
-                ),
-                child: Image.asset(
-                  'assets/font-style-icon.png',
+                  child: Image.asset(
+                    'assets/font-style-icon.png',
+                  ),
                 ),
               ),
             ),
-          ),
-          const Divider(),
-          GestureDetector(
-            // タップをしたらダイアログを表示する
             onTap: () {
               showDialog(
                 context: context,
                 builder: (context) {
                   return AlertDialog(
                     title: const Text(
-                      'カラーテーマを選択',
+                      'フォントサイズを選択',
                       textAlign: TextAlign.center,
                     ),
                     actions: [
                       ElevatedButton(
                         style: ElevatedButton.styleFrom(
-                          // TODO: 共通にしたい
                           backgroundColor: CustomColor.lightBlue,
                           foregroundColor: CustomColor.darkBlue,
                         ),
@@ -82,12 +79,11 @@ class SettingPage extends HookConsumerWidget {
                           notifier.saveAppTheme(AppTheme.light);
                           Navigator.of(context).pop();
                         },
-                        child: const Text('ライトモード'),
+                        child: const Text('Large'),
                       ),
                       const SizedBox(width: 4),
                       ElevatedButton(
                         style: ElevatedButton.styleFrom(
-                          // TODO: 共通にしたい
                           backgroundColor: CustomColor.darkBlue,
                           foregroundColor: CustomColor.white,
                         ),
@@ -95,13 +91,16 @@ class SettingPage extends HookConsumerWidget {
                           notifier.saveAppTheme(AppTheme.dark);
                           Navigator.of(context).pop();
                         },
-                        child: const Text('ダークモード'),
+                        child: const Text('Small'),
                       ),
                     ],
                   );
                 },
               );
             },
+          ),
+          const Divider(),
+          GestureDetector(
             child: ListTile(
               title: const Text('アプリテーマ'),
               trailing: SizedBox(
@@ -121,6 +120,45 @@ class SettingPage extends HookConsumerWidget {
                 ),
               ),
             ),
+            // タップをしたらダイアログを表示する
+            onTap: () {
+              showDialog(
+                context: context,
+                builder: (context) {
+                  return AlertDialog(
+                    title: const Text(
+                      'カラーテーマを選択',
+                      textAlign: TextAlign.center,
+                    ),
+                    actions: [
+                      ElevatedButton(
+                        style: ElevatedButton.styleFrom(
+                          backgroundColor: CustomColor.lightBlue,
+                          foregroundColor: CustomColor.darkBlue,
+                        ),
+                        onPressed: () {
+                          notifier.saveAppTheme(AppTheme.light);
+                          Navigator.of(context).pop();
+                        },
+                        child: const Text('ライトモード'),
+                      ),
+                      const SizedBox(width: 4),
+                      ElevatedButton(
+                        style: ElevatedButton.styleFrom(
+                          backgroundColor: CustomColor.darkBlue,
+                          foregroundColor: CustomColor.white,
+                        ),
+                        onPressed: () {
+                          notifier.saveAppTheme(AppTheme.dark);
+                          Navigator.of(context).pop();
+                        },
+                        child: const Text('ダークモード'),
+                      ),
+                    ],
+                  );
+                },
+              );
+            },
           ),
           const Divider(),
           GestureDetector(

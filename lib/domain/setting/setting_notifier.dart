@@ -27,4 +27,9 @@ class SettingNotifier extends StateNotifier<SettingState> {
   Future<void> getAppTheme() async {
     await appThemeService.getAppTheme();
   }
+
+  /// フォントサイズの設定をSharedPreferenceに保存する
+  Future<void> saveAppFontSize(AppFontSize selectedFontSize) async {
+    await appThemeService.saveAppFontSize(selectedFontSize);
+  }
 }
