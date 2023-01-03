@@ -32,4 +32,9 @@ class AppThemeService {
   Future<void> removeAppTheme() async {
     await appThemeRepository.removeAppTheme();
   }
+
+  /// フォントサイズの設定をSharedPreferenceに保存する
+  Future<void> saveAppFontSize(AppFontSize selectedFontSize) async {
+    await appThemeRepository.saveAppFontSize(selectedFontSize);
+  }
 }
