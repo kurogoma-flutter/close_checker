@@ -17,7 +17,7 @@
             "name": "close_checker (検証)",
             "request": "launch",
             "type": "dart",
-            "flutterMode": "release",
+            "flutterMode": "profile",
             "args": [
                 "FLAVOR=stg",
             ]
@@ -26,7 +26,7 @@
             "name": "close_checker (商用)",
             "request": "launch",
             "type": "dart",
-            "flutterMode": "profile",
+            "flutterMode": "release",
             "args": [
                 "FLAVOR=prod",
             ]
