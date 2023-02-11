@@ -5,21 +5,30 @@
     "version": "0.2.0",
     "configurations": [
         {
-            "name": "close_checker",
-            "request": "launch",
-            "type": "dart"
-        },
-        {
-            "name": "close_checker (profile mode)",
+            "name": "close_checker (開発)",
             "request": "launch",
             "type": "dart",
-            "flutterMode": "profile"
+            "args": [
+                "FLAVOR=dev",
+            ]
         },
         {
-            "name": "close_checker (release mode)",
+            "name": "close_checker (検証)",
             "request": "launch",
             "type": "dart",
-            "flutterMode": "release"
+            "flutterMode": "profile",
+            "args": [
+                "FLAVOR=stg",
+            ]
+        },
+        {
+            "name": "close_checker (商用)",
+            "request": "launch",
+            "type": "dart",
+            "flutterMode": "release",
+            "args": [
+                "FLAVOR=prod",
+            ]
         }
     ]
 }
