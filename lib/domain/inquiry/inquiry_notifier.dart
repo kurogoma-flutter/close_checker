@@ -3,6 +3,8 @@ import 'package:close_checker/domain/inquiry/inquiry_state.dart';
 import 'package:close_checker/infrastructure/model/inquiry/inquiry_model.dart';
 import 'package:hooks_riverpod/hooks_riverpod.dart';
 
+import '../../utility/logger.dart';
+
 final inquiryNotifierProvider =
     StateNotifierProvider.autoDispose<InquiryNotifier, InquiryState>(
   (ref) => InquiryNotifier(
@@ -32,12 +34,12 @@ class InquiryNotifier extends StateNotifier<InquiryState> {
     InquiryModel inquiry = InquiryModel.initialData();
 
     if (state.title == '選択してください') {
-      print('選択してください');
+      logger.i('選択してください');
       return;
     }
 
     if (state.content.isEmpty) {
-      print('内容を入力してください');
+      logger.i('内容を入力してください');
       return;
     }
 
